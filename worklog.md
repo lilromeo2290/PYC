@@ -167,3 +167,62 @@ chmod 600 /home/z/my-project/.github-token
 - This worklog file establishing the commit/push protocol.
 - Pre-existing scaffold files (.zscripts/, examples/, mini-services/,
   db/custom.db, .env, download/README.md) removed from git tracking.
+
+---
+
+## Push — 2026-07-14 04:10:00 UTC (pending — token invalid)
+
+- **Commit message:** feat: remove Impact, Success Stories, News & Blog, and footer newsletter strip
+- **Branch:** main
+- **Local commit SHA:** 64d5bd1
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Repository:** https://github.com/lilromeo2290/PYC
+- **Status:** ⏳ BLOCKED — token in `/home/z/my-project/.github-token` is still
+  the invalid one (HTTP 401). Run the push script after dropping in a fresh PAT.
+
+### Summary of changes in this push
+
+Per user request, removed four sections from the home page:
+
+1. **Our Impact** — the dark-blue animated-counter section (Communities Reached,
+   Scholarships Awarded, Trees Planted, Volunteers, Beneficiaries, Campaigns).
+2. **Success Stories** — the auto-advancing testimonial slider.
+3. **News & Blog** — the 3-post grid of latest articles.
+4. **"Stay connected with our mission"** — the newsletter subscribe strip at the
+   top of the footer.
+
+Dependent cleanup:
+
+- Removed the `News` link from `NAV_LINKS` in `navbar.tsx` (affects both the
+  desktop horizontal menu and the mobile Sheet drawer).
+- Removed the now-broken `News & Blog` and `Success Stories` entries from the
+  footer Resources column, replaced with `Gallery` and `Events` so the column
+  still has 6 links.
+- Removed the unused `ArrowRight` import from `footer.tsx` (was only used by
+  the newsletter Subscribe button).
+- Removed the `Impact`, `Stories`, and `News` imports from `page.tsx`.
+
+Home page now flows: Hero → About → Programs → Projects → Events → Volunteer →
+Donate → Gallery → Partners → Contact → Footer.
+
+Verification:
+
+- `bun run lint` passes with zero errors.
+- Dev server compiles cleanly, no console errors or warnings.
+- Browser-verified: all four target strings (`Stay connected with our mission`,
+  `Success Stories`, `Our Impact`, `News & Blog`) no longer appear anywhere on
+  the page. Navbar links now: Home / About / Programs / Projects / Gallery /
+  Events / Volunteer / Donate / Contact.
+
+Files changed: 3 files, 2 insertions(+), 45 deletions(-)
+- `src/app/page.tsx`
+- `src/components/pyc/footer.tsx`
+- `src/components/pyc/navbar.tsx`
+
+### How to complete this push
+
+```bash
+echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
+chmod 600 /home/z/my-project/.github-token
+/home/z/my-project/scripts/push-to-github.sh "feat: remove Impact, Stories, News, and footer newsletter" --no-edit
+```
