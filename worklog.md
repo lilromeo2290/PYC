@@ -597,3 +597,21 @@ a33e27a feat: add Executives submenu and section under About Us
  src/components/pyc/navbar.tsx     |   1 +
  3 files changed, 273 insertions(+)
 ```
+
+---
+## Push — 2026-07-14 04:55:17 UTC
+
+- **Commit message:** feat: expand Our History with leadership, music, digital media, and Borborbor Festival content
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 472069a8b2e625a14763ed8eede6a423123d3578
+- **Files changed:**  1 file changed, 415 insertions(+), 5 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+472069a feat: expand Our History with leadership, music, digital media, and Borborbor Festival content
+ src/components/pyc/about.tsx | 420 ++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 415 insertions(+), 5 deletions(-)
+```
