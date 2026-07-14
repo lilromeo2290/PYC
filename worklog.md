@@ -383,3 +383,57 @@ echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
 chmod 600 /home/z/my-project/.github-token
 /home/z/my-project/scripts/push-to-github.sh "feat: remove Donate menu item and rename About to About Us" --no-edit
 ```
+
+---
+
+## Push — 2026-07-14 05:05:00 UTC (pending — token invalid)
+
+- **Commit message:** feat: clear all About Us write-up — remove About and AboutHistory sections
+- **Branch:** main
+- **Local commit SHA:** a7bf032
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Repository:** https://github.com/lilromeo2290/PYC
+- **Status:** ⏳ BLOCKED — token in `/home/z/my-project/.github-token` is still
+  the invalid one (HTTP 401). Run the push script after dropping in a fresh PAT.
+
+### Summary of changes in this push
+
+Per user request ("clear all write up under About Us"), removed ALL written
+content under the About Us section.
+
+**Removed from `src/app/page.tsx`:**
+- `<About />` component — the original About intro (mission, vision, 7 core
+  values, image collage, stat badges).
+- `<AboutHistory />` component — the 4 subsections added in a previous turn
+  (Our History, Leadership & Growth, Preserving Culture Through Music,
+  Promoting Culture Through Digital Media).
+
+The component files (`about.tsx`, `about-history.tsx`) are kept on disk but
+no longer imported, so they're inert. They can be restored easily if the user
+wants to bring back any of the content.
+
+**Page now flows:** Hero → Programs → Projects → Events → Volunteer → Donate →
+Gallery → Partners → Contact → Footer.
+
+**Note:** The "About Us" link remains in the navbar and footer Quick Links,
+but the `#about` anchor no longer exists on the page — clicking it will not
+scroll anywhere until new About Us content is added.
+
+**Verification:**
+- All target strings confirmed absent from the DOM: Our Mission, Our Vision,
+  CORE VALUES, "small gathering", "Francis Aba", "Nu Gawoe", "PYC Online
+  Radio", "Borborbor Festival".
+- Sections on page: home, programs, projects, events, volunteer, donate,
+  gallery, (partners), contact.
+- ESLint passes clean, no console errors.
+
+Files changed: 1 file, 4 deletions(-)
+- `src/app/page.tsx`
+
+### How to complete this push
+
+```bash
+echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
+chmod 600 /home/z/my-project/.github-token
+/home/z/my-project/scripts/push-to-github.sh "feat: clear all About Us write-up" --no-edit
+```
