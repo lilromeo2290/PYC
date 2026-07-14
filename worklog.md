@@ -706,3 +706,57 @@ b19aa8f content: update Our Motto section with full user-provided text (foundati
  src/components/pyc/executives.tsx | 151 ++++++++++++++++++++++++++------------
  1 file changed, 106 insertions(+), 45 deletions(-)
 ```
+
+---
+## Push — 2026-07-14 13:43:04 UTC
+
+- **Commit message:** content: update phone numbers to 054 073 7813 and 024 371 7212 in contact section and footer
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 6a17e3c8e0ec0e51d008e2b99b62f6b6ac7a8306
+- **Files changed:**  102 files changed, 59 insertions(+), 22 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+6a17e3c content: update phone numbers to 054 073 7813 and 024 371 7212 in contact section and footer
+ .gitignore                              |   0
+ Caddyfile                               |   0
+ bun.lock                                |   0
+ components.json                         |   0
+ db/custom.db                            | Bin
+ eslint.config.mjs                       |   0
+ mini-services/.gitkeep                  |   0
+ next.config.ts                          |   0
+ package.json                            |   0
+ postcss.config.mjs                      |   0
+ prisma/schema.prisma                    |   0
+ public/logo.svg                         |   0
+ public/pyc-apple-icon.png               | Bin
+ public/pyc-favicon.png                  | Bin
+ public/pyc-favicon.svg                  |   0
+ public/pyc-logo-512.png                 | Bin
+ public/pyc-logo.png                     | Bin
+ public/pyc-logo.svg                     |   0
+ public/pyc-og-image.png                 | Bin
+ public/robots.txt                       |   0
+ scripts/optimize-logo.js                |   0
+ src/app/api/route.ts                    |   0
+ src/app/globals.css                     |   0
+ src/app/layout.tsx                      |   0
+ src/app/page.tsx                        |   0
+ src/components/pyc/about-history.tsx    |   0
+ src/components/pyc/about.tsx            |   0
+ src/components/pyc/button.tsx           |   0
+ src/components/pyc/contact.tsx          |  70 +++++++++++++++++++++++---------
+ src/components/pyc/donate.tsx           |   0
+ src/components/pyc/events.tsx           |   0
+ src/components/pyc/executives.tsx       |   0
+ src/components/pyc/floating-actions.tsx |   0
+ src/components/pyc/footer.tsx           |  11 +++--
+ src/components/pyc/gallery.tsx          |   0
+ src/components/pyc/hero.tsx             |   0
+ src/components/pyc/impact.tsx           |   0
+ src/components/pyc/logo.tsx             |   0
+ src/components/pyc/navbar.tsx           |   0
