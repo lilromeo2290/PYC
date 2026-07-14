@@ -577,3 +577,23 @@ ad42d29 feat: rename Programs menu to What We Do in navbar and footer
  src/components/pyc/navbar.tsx | 2 +-
  2 files changed, 2 insertions(+), 2 deletions(-)
 ```
+
+---
+## Push — 2026-07-14 04:48:36 UTC
+
+- **Commit message:** feat: add Executives submenu and section under About Us
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** a33e27ab6e38ac88441d8b3783ef947e6a3a3b69
+- **Files changed:**  3 files changed, 273 insertions(+)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+a33e27a feat: add Executives submenu and section under About Us
+ src/app/page.tsx                  |   2 +
+ src/components/pyc/executives.tsx | 270 ++++++++++++++++++++++++++++++++++++++
+ src/components/pyc/navbar.tsx     |   1 +
+ 3 files changed, 273 insertions(+)
+```
