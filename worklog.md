@@ -540,3 +540,21 @@ then used by `scripts/push-to-github.sh` to push all queued work.
 
 The token is NEVER persisted in `.git/config` — the push script injects it
 transiently into the remote URL and strips it via `trap` on exit.
+
+---
+## Push — 2026-07-14 04:42:20 UTC
+
+- **Commit message:** feat: remove hero heading, 4 stat cards, and volunteer avatar stack from homepage
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** c5911379c5f6fb7f689eee0f44a2cd6f165cb597
+- **Files changed:**  1 file changed, 29 insertions(+), 153 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+c591137 feat: remove hero heading, 4 stat cards, and volunteer avatar stack from homepage
+ src/components/pyc/hero.tsx | 182 +++++++-------------------------------------
+ 1 file changed, 29 insertions(+), 153 deletions(-)
+```
