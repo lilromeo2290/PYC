@@ -42,23 +42,31 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/85 backdrop-blur-xl border-b border-[#E3E8F2] shadow-[0_4px_30px_-12px_rgba(31,46,138,0.18)] py-2.5"
-          : "bg-transparent py-4"
+          ? "bg-white/90 backdrop-blur-xl border-b border-[#E3E8F2] shadow-[0_4px_30px_-12px_rgba(31,46,138,0.18)] py-2.5"
+          : "bg-gradient-to-b from-black/35 via-black/15 to-transparent py-4"
       )}
     >
       <nav className="section-pad flex items-center justify-between gap-6">
-        {/* Logo */}
+        {/* Logo — white wordmark over hero, dark navy once scrolled */}
         <Link href="#home" aria-label="PYC Club home" className="flex items-center">
-          <PYCLogo badgeClassName="size-11 md:size-12" />
+          <PYCLogo
+            variant={scrolled ? "full" : "white"}
+            badgeClassName="size-11 md:size-12"
+          />
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav — white text over hero, dark navy once scrolled */}
         <ul className="hidden xl:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative px-3 py-2 text-sm font-medium text-[#0E1530]/80 hover:text-brand transition-colors group"
+                className={cn(
+                  "relative px-3 py-2 text-sm font-medium transition-colors group",
+                  scrolled
+                    ? "text-[#0E1530]/80 hover:text-brand"
+                    : "text-white/90 hover:text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]"
+                )}
               >
                 {link.label}
                 <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -88,7 +96,7 @@ export function Navbar() {
                   "xl:hidden inline-flex size-11 items-center justify-center rounded-full transition-colors",
                   scrolled
                     ? "bg-brand-soft/10 text-brand hover:bg-brand-soft/15"
-                    : "bg-white/15 text-white backdrop-blur hover:bg-white/25"
+                    : "bg-white/15 text-white backdrop-blur hover:bg-white/25 ring-1 ring-white/20"
                 )}
               >
                 <Menu className="size-5" />
