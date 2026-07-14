@@ -778,3 +778,45 @@ f1a52ce content: remove 'Want to meet the team in person' CTA strip from Executi
  src/components/pyc/executives.tsx | 17 -----------------
  1 file changed, 17 deletions(-)
 ```
+
+---
+## Push — 2026-07-14 14:37:11 UTC
+
+- **Commit message:** fix: make build config deployment-platform friendly
+
+The previous build configuration was sandbox-specific and caused deployment
+failures on platforms like Vercel/Netlify:
+
+1. package.json build script had sandbox-only 'cp' commands that failed
+   on deployment platforms.
+2. package.json start script used 'bun .next/standalone/server.js' which
+   deployment platforms don't use.
+3. The standalone output mode is sandbox-specific.
+
+Changes:
+- Simplified 'build' script to just 'next build' (works everywhere)
+- Moved sandbox-only file copying to 'postbuild' script with a guard
+  (only runs if .next/standalone exists, i.e. in sandbox with output:standalone)
+- Changed 'start' script to 'next start -p 3000' (standard Next.js)
+- Kept output: 'standalone' in next.config.ts (sandbox needs it; Vercel
+  ignores it and uses its own deployment mechanism)
+
+Verified:
+- bun run lint: passes clean
+- bun run build: compiles successfully in 16.2s, generates all 4 pages
+- postbuild script correctly copies static files to standalone dir
+- Dev server runs correctly in sandbox
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 4b0c4df365cdb7a88ab24d229030e1758150c2fb
+- **Files changed:**  2 files changed, 3 insertions(+), 3 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+4b0c4df fix: make build config deployment-platform friendly
+ next.config.ts | 1 -
+ package.json   | 5 +++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+```
