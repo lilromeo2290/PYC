@@ -567,13 +567,20 @@ function VisionMission() {
             <h3 className="mt-5 font-display text-2xl font-bold text-[#0E1530]">
               Our Mission
             </h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-[#5A6485]">
-              To bring people together through friendship, unity, cultural
-              preservation, and mutual support — creating a strong network where
-              members uplift one another while contributing positively to
-              society and preserving the rich heritage of the Ewe-speaking
-              communities for generations to come.
-            </p>
+            <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#5A6485]">
+              <p>
+                Progressive Youth Club exists to promote friendship, unity, love,
+                and mutual support among its members while contributing
+                positively to the communities in which they live.
+              </p>
+              <p>
+                We believe that when individuals stand together, they become
+                stronger, more resilient, and better equipped to overcome life's
+                challenges. Through social activities, cultural programmes,
+                music, and community engagement, we strive to build lasting
+                relationships that positively impact generations.
+              </p>
+            </div>
           </div>
 
           {/* Vision */}
@@ -585,10 +592,10 @@ function VisionMission() {
               Our Vision
             </h3>
             <p className="mt-3 text-[15px] leading-relaxed text-[#5A6485]">
-              To be a respected and influential social club that serves as a
-              symbol of togetherness, cultural pride, and community service —
-              uniting people across the Ewe-speaking communities and beyond
-              through culture, music, and sustainable social development.
+              To be a leading social and cultural organization that inspires
+              unity, preserves Ewe cultural heritage, promotes traditional music,
+              and empowers communities through collective support and meaningful
+              partnerships.
             </p>
           </div>
         </div>
