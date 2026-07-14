@@ -29,7 +29,7 @@ const NAV_LINKS: {
       { label: "Our Core Values", href: "#core-values" },
     ],
   },
-  { label: "Programs", href: "#programs" },
+  { label: "What We Do", href: "#programs" },
   { label: "Projects", href: "#projects" },
   { label: "Gallery", href: "#gallery" },
   { label: "Events", href: "#events" },

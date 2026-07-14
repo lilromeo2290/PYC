@@ -14,7 +14,7 @@ import { PYCLogo } from "./logo";
 
 const QUICK_LINKS = [
   { label: "About Us", href: "#about" },
-  { label: "Our Programs", href: "#programs" },
+  { label: "What We Do", href: "#programs" },
   { label: "Projects", href: "#projects" },
   { label: "Volunteer", href: "#volunteer" },
   { label: "Events", href: "#events" },
