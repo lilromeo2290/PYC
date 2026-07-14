@@ -46,7 +46,7 @@ export function Hero() {
         <div className="mx-auto max-w-7xl">
           {/* Floating logo chip */}
           <div className="reveal mb-8 inline-flex items-center gap-3 rounded-2xl glass-dark px-4 py-2.5">
-            <PYCLogo variant="crest" className="h-9 w-9" />
+            <PYCLogo variant="crest" className="size-10" />
             <div className="text-white">
               <p className="text-xs font-semibold tracking-wider text-gold uppercase">
                 Progressive Youth Club, Ho

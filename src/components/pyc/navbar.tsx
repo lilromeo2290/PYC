@@ -50,7 +50,7 @@ export function Navbar() {
       <nav className="section-pad flex items-center justify-between gap-6">
         {/* Logo */}
         <Link href="#home" aria-label="PYC Club home" className="flex items-center">
-          <PYCLogo className="h-11 w-auto md:h-12" />
+          <PYCLogo badgeClassName="size-11 md:size-12" />
         </Link>
 
         {/* Desktop nav */}
@@ -102,7 +102,7 @@ export function Navbar() {
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-5 border-b border-[#E3E8F2]">
-                  <PYCLogo className="h-10" />
+                  <PYCLogo badgeClassName="size-10" />
                   <SheetClose asChild>
                     <button
                       aria-label="Close menu"

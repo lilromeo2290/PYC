@@ -101,7 +101,23 @@ export function Footer() {
         <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <PYCLogo variant="white" className="h-14 w-auto" />
+            <div className="flex items-center gap-4">
+              <PYCLogo
+                variant="emblem"
+                className="size-20 rounded-2xl shadow-premium-lg ring-1 ring-white/10"
+              />
+              <div>
+                <div className="font-display text-2xl font-extrabold text-white">
+                  PYC <span className="text-gold">Club</span>
+                </div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                  Progressive Youth Club, Ho
+                </div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-gold">
+                  We Stand For Support
+                </div>
+              </div>
+            </div>
             <p className="mt-5 text-sm leading-relaxed text-white/65 max-w-sm">
               Progressive Youth Club, Ho is a youth-led non-governmental
               organization dedicated to empowering young people through

@@ -18,6 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pycclub.org"),
   title: "Progressive Youth Club, Ho (PYC Club) — We Stand For Support",
   description:
     "Progressive Youth Club, Ho is a youth-led NGO empowering young people through education, leadership, community development, advocacy, environmental sustainability, and social support in the Volta Region of Ghana.",
@@ -33,8 +34,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Progressive Youth Club, Ho" }],
   icons: {
-    icon: "/pyc-favicon.svg",
-    apple: "/pyc-favicon.svg",
+    icon: "/pyc-favicon.png",
+    apple: "/pyc-apple-icon.png",
   },
   openGraph: {
     title: "Progressive Youth Club, Ho — We Stand For Support",
@@ -43,6 +44,14 @@ export const metadata: Metadata = {
     url: "https://pycclub.org",
     siteName: "Progressive Youth Club, Ho",
     type: "website",
+    images: [
+      {
+        url: "/pyc-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Progressive Youth Club, Ho — PYC Club",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
