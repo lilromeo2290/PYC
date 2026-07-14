@@ -688,3 +688,21 @@ b19aa8f content: update Our Motto section with full user-provided text (foundati
  src/components/pyc/about.tsx | 86 ++++++++++++++++++++++++--------------------
  1 file changed, 47 insertions(+), 39 deletions(-)
 ```
+
+---
+## Push — 2026-07-14 05:32:41 UTC
+
+- **Commit message:** content: replace placeholder executives with actual 11 PYC leadership team (Chairman, Vice Chairman, Secretaries, Treasurer, Organisers, Transport, Woman Organisers)
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 000b100bf0fee03a19343b10443b6e7844a62814
+- **Files changed:**  1 file changed, 106 insertions(+), 45 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+000b100 content: replace placeholder executives with actual 11 PYC leadership team (Chairman, Vice Chairman, Secretaries, Treasurer, Organisers, Transport, Woman Organisers)
+ src/components/pyc/executives.tsx | 151 ++++++++++++++++++++++++++------------
+ 1 file changed, 106 insertions(+), 45 deletions(-)
+```
