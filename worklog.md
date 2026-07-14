@@ -274,3 +274,63 @@ echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
 chmod 600 /home/z/my-project/.github-token
 /home/z/my-project/scripts/push-to-github.sh "fix: navbar menu text invisible over hero" --no-edit
 ```
+
+---
+
+## Push — 2026-07-14 04:45:00 UTC (pending — token invalid)
+
+- **Commit message:** feat: add Our History, Leadership, Music album, and Digital Media sections under About
+- **Branch:** main
+- **Local commit SHA:** 96ce7c4
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Repository:** https://github.com/lilromeo2290/PYC
+- **Status:** ⏳ BLOCKED — token in `/home/z/my-project/.github-token` is still
+  the invalid one (HTTP 401). Run the push script after dropping in a fresh PAT.
+
+### Summary of changes in this push
+
+Added a new `AboutHistory` component (`src/components/pyc/about-history.tsx`)
+with four rich storytelling subsections that sit right after the existing About
+intro, all under the `#about` menu anchor:
+
+1. **Our History** — founding date 14th February 2007 (registered under the laws
+   of Ghana), story of growth from small gathering to influential social club,
+   image with glass-card founding-date badge, 3 stat cards (2007 founded,
+   17+ years, Ewe community served).
+
+2. **Leadership & Growth** — spotlight card for Mr. Francis Aba (Founder &
+   Leader) with 'FA' initials avatar + gold star badge, two paragraphs about
+   visionary leadership, 6 leadership quality chips.
+
+3. **Preserving Our Culture Through Music** — dark navy section with gold
+   accents, album feature card with 'Nu Gawoe Nye Mawu Drado Di Nam' title,
+   'Award Winning' gold badge, 3 stat tiles, CTA buttons.
+
+4. **Promoting Culture Through Digital Media** — PYC Online Radio banner with
+   red 'Live' indicator, 5 purpose cards (Global Broadcasting, Song
+   Preservation, Ewe Heritage, Community Engagement, Talent Showcase), reach
+   callout, Borborbor Festival callout (gold gradient box) with trophy icon.
+
+All content uses the exact text provided by the user, formatted into rich
+paragraphs per the Content Depth Rule.
+
+**Verification (via VLM + Agent Browser):**
+- Our History: heading, founding date, stat cards, body text all visible.
+- Leadership: Mr. Francis Aba spotlight card with avatar and quality chips.
+- Music: album title 'Nu Gawoe Nye Mawu Drado Di Nam', Award Winning badge,
+  dark blue + gold premium design confirmed.
+- Digital Media: PYC Online Radio banner with Live indicator, 5 purpose cards,
+  Borborbor Festival callout with trophy icon all visible.
+- ESLint passes with zero errors, no console errors.
+
+Files changed: 2 files, 563 insertions(+)
+- `src/components/pyc/about-history.tsx` (new)
+- `src/app/page.tsx` (added import + component placement)
+
+### How to complete this push
+
+```bash
+echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
+chmod 600 /home/z/my-project/.github-token
+/home/z/my-project/scripts/push-to-github.sh "feat: add Our History, Leadership, Music, and Digital Media sections under About" --no-edit
+```
