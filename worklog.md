@@ -125,10 +125,25 @@ scripts/
 
 - **Commit message:** Initial commit — full PYC Club website with brand identity
 - **Branch:** main
+- **Local commit SHA:** d35fdfe
 - **Author:** PYC Club <pycclub@users.noreply.github.com>
 - **Repository:** https://github.com/lilromeo2290/PYC
 - **Status:** ⏳ BLOCKED — token provided in chat was invalid (HTTP 401).
-  Awaiting a fresh PAT to be written to `/home/z/my-project/.github-token`.
+  GitHub likely auto-revoked it via secret-scanning. Awaiting a fresh PAT.
+
+### How to complete this push (when a valid token is available)
+
+```bash
+# 1. Generate a new PAT at https://github.com/settings/tokens
+#    Scopes needed: repo (and workflow if you add CI later)
+
+# 2. Write it to the gitignored token file
+echo "ghp_NEW_TOKEN_HERE" > /home/z/my-project/.github-token
+chmod 600 /home/z/my-project/.github-token
+
+# 3. Push (the script will validate the token first, then push)
+/home/z/my-project/scripts/push-to-github.sh "Initial commit — full PYC Club website with brand identity"
+```
 
 ### Summary of changes staged for this push
 
@@ -147,6 +162,8 @@ scripts/
 - Browser-verified: navigation, mobile menu, contact form, gallery filter,
   donation amount selection — all working with no console errors.
 - `.gitignore` excludes node_modules, .next, .env, dev.log, .github-token,
-  upload/, download/, .zscripts/.
+  upload/, skills/, examples/, .zscripts/.
 - Reusable `scripts/push-to-github.sh` for token-aware commits & pushes.
 - This worklog file establishing the commit/push protocol.
+- Pre-existing scaffold files (.zscripts/, examples/, mini-services/,
+  db/custom.db, .env, download/README.md) removed from git tracking.
