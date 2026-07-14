@@ -39,13 +39,14 @@ const MUSIC_IMG =
   "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1100&q=80";
 
 const VALUES = [
-  { icon: Shield, label: "Integrity" },
-  { icon: Users, label: "Leadership" },
-  { icon: Heart, label: "Community" },
-  { icon: HandHeart, label: "Service" },
-  { icon: Globe2, label: "Inclusion" },
-  { icon: Sparkles, label: "Innovation" },
-  { icon: Scale, label: "Accountability" },
+  { icon: Users, label: "Unity" },
+  { icon: Heart, label: "Love" },
+  { icon: Shield, label: "Respect" },
+  { icon: Scale, label: "Integrity" },
+  { icon: HandHeart, label: "Teamwork" },
+  { icon: Globe2, label: "Cultural Preservation" },
+  { icon: Sparkles, label: "Community Service" },
+  { icon: HandHeart, label: "Mutual Support" },
 ];
 
 const LEADERSHIP_QUALITIES = [
@@ -620,8 +621,7 @@ function CoreValues() {
             The principles that <span className="text-brand">guide us</span>
           </h2>
           <p className="mt-4 text-lg text-[#5A6485]">
-            Seven values shape every decision we make and every relationship we
-            build at Progressive Youth Club.
+            Our activities and decisions are guided by the following values:
           </p>
         </div>
 
@@ -639,20 +639,6 @@ function CoreValues() {
               </span>
             </div>
           ))}
-
-          {/* CTA tile to fill the 8th grid slot */}
-          <div className="reveal reveal-delay-4 group flex flex-col items-center justify-center gap-3 rounded-3xl gold-gradient p-6 text-center shadow-gold transition-all hover:-translate-y-1">
-            <HandHeart className="size-8 text-[#182368]" />
-            <span className="font-display text-base font-bold text-[#182368]">
-              Want to live these values with us?
-            </span>
-            <a
-              href="#volunteer"
-              className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-[#182368] px-5 py-2 text-xs font-bold text-white hover:bg-[#0E1530] transition-colors"
-            >
-              Join Us
-            </a>
-          </div>
         </div>
       </div>
     </div>
