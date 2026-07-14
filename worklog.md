@@ -651,3 +651,22 @@ a33e27a feat: add Executives submenu and section under About Us
  src/components/pyc/about.tsx | 32 +++++++++-----------------------
  1 file changed, 9 insertions(+), 23 deletions(-)
 ```
+
+---
+## Push — 2026-07-14 05:15:15 UTC
+
+- **Commit message:** feat: add Our Motto submenu and section under About Us — 'We Stand For Support'
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 9f723a9a4539cfdf9e3002c5168355f95b9b8e56
+- **Files changed:**  2 files changed, 102 insertions(+)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+9f723a9 feat: add Our Motto submenu and section under About Us — 'We Stand For Support'
+ src/components/pyc/about.tsx  | 101 ++++++++++++++++++++++++++++++++++++++++++
+ src/components/pyc/navbar.tsx |   1 +
+ 2 files changed, 102 insertions(+)
+```
