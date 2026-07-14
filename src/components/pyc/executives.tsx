@@ -3,18 +3,24 @@
 import * as React from "react";
 import {
   Mail,
-  Phone,
   Linkedin,
   Facebook,
   Star,
   Crown,
+  Users,
+  FileText,
+  Wallet,
+  Coins,
+  CalendarDays,
+  Bus,
+  Heart,
   type LucideIcon,
 } from "lucide-react";
 import { SectionHeader } from "./section-header";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    Executives — leadership team grid for Progressive Youth Club, Ho.
-   Sits under #executives anchor (4th item in the About Us submenu).
+   Sits under #executives anchor (5th item in the About Us submenu).
    ═══════════════════════════════════════════════════════════════════════════ */
 
 interface Executive {
@@ -22,6 +28,7 @@ interface Executive {
   role: string;
   initials: string;
   bio: string;
+  icon: LucideIcon;
   isLeader?: boolean;
   socials?: { icon: LucideIcon; href: string; label: string }[];
 }
@@ -29,13 +36,14 @@ interface Executive {
 const EXECUTIVES: Executive[] = [
   {
     name: "Mr. Francis Aba",
-    role: "Founder & Leader",
+    role: "Chairman",
     initials: "FA",
+    icon: Crown,
     bio:
-      "Visionary founder of Progressive Youth Club. Since 2007, his disciplined, " +
-      "selfless leadership has guided PYC from a small gathering into a respected " +
-      "social club whose cultural and community impact is felt across the " +
-      "Ewe-speaking communities and beyond.",
+      "Visionary founder and Chairman of Progressive Youth Club. Since 2007, " +
+      "his disciplined, selfless leadership has guided PYC from a small " +
+      "gathering into a respected social club whose cultural and community " +
+      "impact is felt across the Ewe-speaking communities and beyond.",
     isLeader: true,
     socials: [
       { icon: Mail, href: "#contact", label: "Email" },
@@ -44,49 +52,104 @@ const EXECUTIVES: Executive[] = [
     ],
   },
   {
-    name: "Executive Secretary",
-    role: "Secretary General",
-    initials: "ES",
+    name: "Jerry Dzamesi",
+    role: "Vice Chairman",
+    initials: "JD",
+    icon: Users,
+    bio:
+      "Supports the Chairman in steering the club's direction and deputises " +
+      "in all leadership duties, ensuring continuity and stability across " +
+      "Progressive Youth Club's programmes and engagements.",
+  },
+  {
+    name: "Justine Maame Akpabli",
+    role: "General Secretary",
+    initials: "JA",
+    icon: FileText,
     bio:
       "Keeps the heart of the organization beating — managing records, " +
-      "communications, and the official correspondence that keeps PYC aligned " +
+      "official correspondence, and the communications that keep PYC aligned " +
       "with its mission and the laws of Ghana.",
   },
   {
-    name: "Executive Treasurer",
-    role: "Treasurer & Finance",
-    initials: "ET",
+    name: "Freda Saaneye",
+    role: "Deputy General Secretary",
+    initials: "FS",
+    icon: FileText,
     bio:
-      "Stewards the club's finances with transparency and accountability, " +
-      "ensuring every cedi contributed by members and partners is directed " +
-      "toward initiatives that uplift the community.",
+      "Assists the General Secretary in documentation and administration, " +
+      "ensuring the club's records, minutes, and communications are " +
+      "accurately maintained and readily accessible.",
   },
   {
-    name: "Programs Coordinator",
-    role: "Programs & Projects",
-    initials: "PC",
+    name: "Otumfour Mark",
+    role: "Financial Secretary",
+    initials: "OM",
+    icon: Wallet,
     bio:
-      "Designs and oversees the club's community development initiatives, " +
-      "cultural preservation projects, and the annual Borborbor Festival — " +
-      "turning ideas into measurable impact.",
+      "Oversees the club's financial records and reporting with transparency " +
+      "and accountability, ensuring every contribution is properly tracked " +
+      "and directed toward initiatives that uplift the community.",
   },
   {
-    name: "Organizing Secretary",
-    role: "Membership & Events",
-    initials: "OS",
+    name: "Stella Tuekpe",
+    role: "Treasurer",
+    initials: "ST",
+    icon: Coins,
     bio:
-      "Coordinates membership engagement, meetings, and the club's calendar " +
-      "of gatherings — building the strong network of friendship and unity " +
-      "that defines Progressive Youth Club.",
+      "Stewards the club's funds with integrity, managing receipts, " +
+      "disbursements, and the financial health that sustains Progressive " +
+      "Youth Club's cultural and community initiatives.",
   },
   {
-    name: "Public Relations Officer",
-    role: "Communications & Media",
-    initials: "PR",
+    name: "Felix Atsu Kpemli",
+    role: "Organiser",
+    initials: "FK",
+    icon: CalendarDays,
     bio:
-      "Manages PYC's voice across digital channels, including the club's " +
-      "online radio station, ensuring the Borborbor album and cultural " +
-      "activities reach audiences across the sub-region.",
+      "Designs and coordinates the club's events, gatherings, and " +
+      "community-development initiatives — turning ideas into memorable " +
+      "experiences that strengthen the bonds of membership.",
+  },
+  {
+    name: "Agbeve Agbesi",
+    role: "Deputy Organiser",
+    initials: "AA",
+    icon: CalendarDays,
+    bio:
+      "Supports the Organiser in planning and executing the club's calendar " +
+      "of activities, ensuring every event runs smoothly and every member " +
+      "feels included.",
+  },
+  {
+    name: "Edem Atigah",
+    role: "Transport Officer",
+    initials: "EA",
+    icon: Bus,
+    bio:
+      "Coordinates transportation logistics for the club's events, " +
+      "gatherings, and outreach — ensuring members and materials arrive " +
+      "safely and on time.",
+  },
+  {
+    name: "Matilda Keh",
+    role: "Woman Organiser",
+    initials: "MK",
+    icon: Heart,
+    bio:
+      "Champions the engagement, welfare, and leadership of women within " +
+      "Progressive Youth Club, organizing programmes that amplify women's " +
+      "voices and contributions.",
+  },
+  {
+    name: "Bernice Dzah",
+    role: "Deputy Woman Organiser",
+    initials: "BD",
+    icon: Heart,
+    bio:
+      "Assists the Woman Organiser in advocating for women's participation " +
+      "and supporting initiatives that empower female members across the " +
+      "club's activities.",
   },
 ];
 
@@ -181,7 +244,7 @@ function LeaderCard({ exec }: { exec: Executive }) {
         <div className="text-center md:text-left">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-gold/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#182368]">
             <Star className="size-3 fill-current" />
-            Founder & Leader
+            Chairman
           </div>
           <h3 className="mt-3 font-display text-2xl font-bold text-[#0E1530] md:text-3xl">
             {exec.name}
@@ -227,8 +290,13 @@ function ExecutiveCard({
 
       {/* Avatar */}
       <div className="flex items-center gap-4">
-        <div className="inline-flex size-16 items-center justify-center rounded-2xl brand-gradient text-white shadow-premium transition-transform group-hover:scale-105 shrink-0">
-          <span className="font-display text-xl font-bold">{exec.initials}</span>
+        <div className="relative shrink-0">
+          <div className="inline-flex size-16 items-center justify-center rounded-2xl brand-gradient text-white shadow-premium transition-transform group-hover:scale-105">
+            <span className="font-display text-xl font-bold">{exec.initials}</span>
+          </div>
+          <span className="absolute -bottom-1 -right-1 inline-flex size-7 items-center justify-center rounded-full gold-gradient text-[#182368] shadow-gold ring-2 ring-white">
+            <exec.icon className="size-3.5" />
+          </span>
         </div>
         <div>
           <h3 className="font-display text-lg font-bold text-[#0E1530] leading-tight">
@@ -258,13 +326,6 @@ function ExecutiveCard({
           ))}
         </div>
       )}
-
-      {/* Placeholder avatar silhouette (visual hint for real photo slot) */}
-      <div className="mt-5 border-t border-[#E3E8F2] pt-4 text-center">
-        <p className="text-[11px] text-[#5A6485]/70 italic">
-          Photo to be updated
-        </p>
-      </div>
     </div>
   );
 }
