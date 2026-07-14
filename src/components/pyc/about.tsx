@@ -679,7 +679,7 @@ function OurMotto() {
             Our Motto
           </div>
 
-          {/* Decorative quote mark */}
+          {/* Decorative opening quote mark */}
           <div className="mt-8 text-7xl leading-none text-gold/30 font-display">
             &ldquo;
           </div>
@@ -687,7 +687,7 @@ function OurMotto() {
           {/* The motto — large, gold gradient */}
           <h2 className="reveal reveal-delay-1 mt-2 font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             <span className="bg-gradient-to-r from-[#E8C766] to-[#D4AF37] bg-clip-text text-transparent">
-              We Stand For Support
+              We Stand for Support.
             </span>
           </h2>
 
@@ -696,49 +696,57 @@ function OurMotto() {
             &ldquo;
           </div>
 
+          {/* Motto explanation */}
           <p className="reveal reveal-delay-2 mt-8 max-w-2xl mx-auto text-lg leading-relaxed text-white/80">
-            These four words capture the heart of everything we do at
-            Progressive Youth Club. They remind us that true strength is found
-            in standing together — lifting one another in friendship, defending
-            our cultural heritage, and showing up for our communities in moments
-            of both celebration and need.
+            This motto represents the very foundation upon which Progressive
+            Youth Club was built. It reminds every member that no one stands
+            alone. We celebrate together during moments of joy, support one
+            another during difficult times, and work collectively to build a
+            stronger, united family.
           </p>
+        </div>
 
-          {/* Three pillars derived from the motto */}
-          <div className="reveal reveal-delay-3 mt-12 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/8 hover:-translate-y-1">
-              <div className="inline-flex size-12 items-center justify-center rounded-xl gold-gradient text-[#182368] shadow-gold">
-                <Users className="size-6" />
+        {/* Looking Ahead sub-section */}
+        <div className="reveal reveal-delay-3 mx-auto mt-16 max-w-4xl">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-12">
+            <div
+              aria-hidden
+              className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-gold/15 blur-3xl"
+            />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#E8C766]">
+                <Sparkles className="size-3.5" />
+                Looking Ahead
               </div>
-              <h3 className="mt-4 font-display text-lg font-bold text-white">
-                Stand
-              </h3>
-              <p className="mt-1 text-sm text-white/65">
-                Together, in unity and friendship — never alone.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/8 hover:-translate-y-1">
-              <div className="inline-flex size-12 items-center justify-center rounded-xl gold-gradient text-[#182368] shadow-gold">
-                <Heart className="size-6" />
+              <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-white/80">
+                <p>
+                  As Progressive Youth Club continues to grow, we remain
+                  committed to expanding our cultural initiatives, strengthening
+                  community partnerships, embracing innovation, and preserving
+                  our rich traditions for future generations.
+                </p>
+                <p>
+                  We welcome everyone who shares our vision of unity,
+                  friendship, cultural excellence, and community development to
+                  join us in building a brighter future together.
+                </p>
               </div>
-              <h3 className="mt-4 font-display text-lg font-bold text-white">
-                For
-              </h3>
-              <p className="mt-1 text-sm text-white/65">
-                Our values, our culture, and the communities we call home.
-              </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/8 hover:-translate-y-1">
-              <div className="inline-flex size-12 items-center justify-center rounded-xl gold-gradient text-[#182368] shadow-gold">
-                <HandHeart className="size-6" />
-              </div>
-              <h3 className="mt-4 font-display text-lg font-bold text-white">
-                Support
-              </h3>
-              <p className="mt-1 text-sm text-white/65">
-                One another — in service, in love, and in mutual upliftment.
-              </p>
-            </div>
+          </div>
+        </div>
+
+        {/* Closing statement that re-quotes the motto */}
+        <div className="reveal reveal-delay-4 mx-auto mt-12 max-w-3xl text-center">
+          <p className="text-lg leading-relaxed text-white/85 md:text-xl">
+            Progressive Youth Club (PYC) continues to stand as a beacon of hope,
+            culture, unity, and support — bringing people together through
+            music, friendship, and service while proudly living by our enduring
+            motto:
+          </p>
+          <div className="mt-6 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#E8C766]/15 to-[#D4AF37]/15 border border-gold/30 px-8 py-4">
+            <span className="text-2xl font-display font-extrabold bg-gradient-to-r from-[#E8C766] to-[#D4AF37] bg-clip-text text-transparent md:text-3xl">
+              &ldquo;We Stand for Support.&rdquo;
+            </span>
           </div>
         </div>
       </div>
