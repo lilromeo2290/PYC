@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Navbar } from "@/components/pyc/navbar";
 import { Hero } from "@/components/pyc/hero";
+import { About } from "@/components/pyc/about";
 import { Programs } from "@/components/pyc/programs";
 import { Projects } from "@/components/pyc/projects";
 import { Events } from "@/components/pyc/events";
@@ -23,6 +24,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <About />
         <Programs />
         <Projects />
         <Events />
