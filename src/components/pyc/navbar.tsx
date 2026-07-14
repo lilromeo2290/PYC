@@ -27,6 +27,7 @@ const NAV_LINKS: {
       { label: "Our History", href: "#our-history" },
       { label: "Vision and Mission", href: "#vision-mission" },
       { label: "Our Core Values", href: "#core-values" },
+      { label: "Our Motto", href: "#our-motto" },
       { label: "Executives", href: "#executives" },
     ],
   },

@@ -97,6 +97,7 @@ export function About() {
       <OurHistory />
       <VisionMission />
       <CoreValues />
+      <OurMotto />
     </section>
   );
 }
@@ -639,6 +640,106 @@ function CoreValues() {
               </span>
             </div>
           ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. OUR MOTTO  (id="our-motto")
+   ═══════════════════════════════════════════════════════════════════════════ */
+function OurMotto() {
+  return (
+    <div id="our-motto" className="relative isolate overflow-hidden bg-[#0B1130] py-20 md:py-28">
+      {/* Decorative background */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 15% 20%, rgba(39,65,181,0.55) 0%, transparent 50%), radial-gradient(circle at 85% 80%, rgba(212,175,55,0.25) 0%, transparent 45%)",
+        }}
+      />
+      {/* Floating decorative blobs */}
+      <div
+        aria-hidden
+        className="absolute top-10 left-10 -z-10 h-64 w-64 rounded-full bg-gold/15 blur-3xl animate-blob"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-10 right-10 -z-10 h-72 w-72 rounded-full bg-[#2741B5]/40 blur-3xl animate-blob"
+        style={{ animationDelay: "3s" }}
+      />
+
+      <div className="section-pad relative">
+        <div className="reveal mx-auto max-w-4xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#E8C766]">
+            <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+            Our Motto
+          </div>
+
+          {/* Decorative quote mark */}
+          <div className="mt-8 text-7xl leading-none text-gold/30 font-display">
+            &ldquo;
+          </div>
+
+          {/* The motto — large, gold gradient */}
+          <h2 className="reveal reveal-delay-1 mt-2 font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <span className="bg-gradient-to-r from-[#E8C766] to-[#D4AF37] bg-clip-text text-transparent">
+              We Stand For Support
+            </span>
+          </h2>
+
+          {/* Closing quote mark */}
+          <div className="mt-2 text-7xl leading-none text-gold/30 font-display -scale-x-100">
+            &ldquo;
+          </div>
+
+          <p className="reveal reveal-delay-2 mt-8 max-w-2xl mx-auto text-lg leading-relaxed text-white/80">
+            These four words capture the heart of everything we do at
+            Progressive Youth Club. They remind us that true strength is found
+            in standing together — lifting one another in friendship, defending
+            our cultural heritage, and showing up for our communities in moments
+            of both celebration and need.
+          </p>
+
+          {/* Three pillars derived from the motto */}
+          <div className="reveal reveal-delay-3 mt-12 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/8 hover:-translate-y-1">
+              <div className="inline-flex size-12 items-center justify-center rounded-xl gold-gradient text-[#182368] shadow-gold">
+                <Users className="size-6" />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold text-white">
+                Stand
+              </h3>
+              <p className="mt-1 text-sm text-white/65">
+                Together, in unity and friendship — never alone.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/8 hover:-translate-y-1">
+              <div className="inline-flex size-12 items-center justify-center rounded-xl gold-gradient text-[#182368] shadow-gold">
+                <Heart className="size-6" />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold text-white">
+                For
+              </h3>
+              <p className="mt-1 text-sm text-white/65">
+                Our values, our culture, and the communities we call home.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/8 hover:-translate-y-1">
+              <div className="inline-flex size-12 items-center justify-center rounded-xl gold-gradient text-[#182368] shadow-gold">
+                <HandHeart className="size-6" />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold text-white">
+                Support
+              </h3>
+              <p className="mt-1 text-sm text-white/65">
+                One another — in service, in love, and in mutual upliftment.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
