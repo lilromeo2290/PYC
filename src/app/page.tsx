@@ -4,6 +4,7 @@ import * as React from "react";
 import { Navbar } from "@/components/pyc/navbar";
 import { Hero } from "@/components/pyc/hero";
 import { About } from "@/components/pyc/about";
+import { Executives } from "@/components/pyc/executives";
 import { Programs } from "@/components/pyc/programs";
 import { Projects } from "@/components/pyc/projects";
 import { Events } from "@/components/pyc/events";
@@ -25,6 +26,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <About />
+        <Executives />
         <Programs />
         <Projects />
         <Events />
