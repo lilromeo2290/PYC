@@ -16,13 +16,12 @@ import {
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
+  { label: "About Us", href: "#about" },
   { label: "Programs", href: "#programs" },
   { label: "Projects", href: "#projects" },
   { label: "Gallery", href: "#gallery" },
   { label: "Events", href: "#events" },
   { label: "Volunteer", href: "#volunteer" },
-  { label: "Donate", href: "#donate" },
   { label: "Contact", href: "#contact" },
 ];
 
