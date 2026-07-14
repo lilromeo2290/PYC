@@ -20,8 +20,10 @@ const CONTACT_INFO = [
   {
     icon: Phone,
     label: "Call us",
-    value: "+233 20 000 0000",
-    href: "tel:+233200000000",
+    value: "054 073 7813",
+    subValue: "024 371 7212",
+    href: "tel:+233540737813",
+    subHref: "tel:+233243717212",
   },
   {
     icon: Mail,
@@ -106,7 +108,7 @@ export function Contact() {
                   label="Phone"
                   name="phone"
                   type="tel"
-                  placeholder="+233 XX XXX XXXX"
+                  placeholder="054 XXX XXXX"
                 />
                 <Field
                   label="Subject *"
@@ -163,23 +165,53 @@ export function Contact() {
               </p>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {CONTACT_INFO.map((c) => (
-                  <a
-                    key={c.label}
-                    href={c.href ?? undefined}
-                    className="group flex items-start gap-3 rounded-2xl bg-white/8 border border-white/10 p-4 hover:bg-white/12 transition-colors"
-                  >
-                    <div className="inline-flex size-10 items-center justify-center rounded-xl bg-gold text-[#182368] shrink-0">
-                      <c.icon className="size-5" />
+                {CONTACT_INFO.map((c) =>
+                  c.label === "Call us" ? (
+                    <div
+                      key={c.label}
+                      className="group flex items-start gap-3 rounded-2xl bg-white/8 border border-white/10 p-4 transition-colors"
+                    >
+                      <div className="inline-flex size-10 items-center justify-center rounded-xl bg-gold text-[#182368] shrink-0">
+                        <c.icon className="size-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs uppercase tracking-wider text-white/60">
+                          {c.label}
+                        </p>
+                        <a
+                          href={c.href}
+                          className="block text-sm font-semibold text-white hover:text-gold transition-colors"
+                        >
+                          {c.value}
+                        </a>
+                        {c.subValue && (
+                          <a
+                            href={c.subHref}
+                            className="block text-sm font-semibold text-white hover:text-gold transition-colors"
+                          >
+                            {c.subValue}
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-white/60">
-                        {c.label}
-                      </p>
-                      <p className="text-sm font-semibold text-white">{c.value}</p>
-                    </div>
-                  </a>
-                ))}
+                  ) : (
+                    <a
+                      key={c.label}
+                      href={c.href ?? undefined}
+                      className="group flex items-start gap-3 rounded-2xl bg-white/8 border border-white/10 p-4 hover:bg-white/12 transition-colors"
+                    >
+                      <div className="inline-flex size-10 items-center justify-center rounded-xl bg-gold text-[#182368] shrink-0">
+                        <c.icon className="size-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-wider text-white/60">
+                          {c.label}
+                        </p>
+                        <p className="text-sm font-semibold text-white">{c.value}</p>
+                      </div>
+                    </a>
+                  )
+                )}
               </div>
 
               <div className="mt-6 flex items-center gap-3">
