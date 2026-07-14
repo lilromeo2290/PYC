@@ -670,3 +670,21 @@ a33e27a feat: add Executives submenu and section under About Us
  src/components/pyc/navbar.tsx |   1 +
  2 files changed, 102 insertions(+)
 ```
+
+---
+## Push — 2026-07-14 05:25:35 UTC
+
+- **Commit message:** content: update Our Motto section with full user-provided text (foundation explanation, Looking Ahead, beacon-of-hope closing)
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** b19aa8fd4d984851516561341c91aec4e972f532
+- **Files changed:**  1 file changed, 47 insertions(+), 39 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+b19aa8f content: update Our Motto section with full user-provided text (foundation explanation, Looking Ahead, beacon-of-hope closing)
+ src/components/pyc/about.tsx | 86 ++++++++++++++++++++++++--------------------
+ 1 file changed, 47 insertions(+), 39 deletions(-)
+```
