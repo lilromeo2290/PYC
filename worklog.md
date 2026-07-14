@@ -226,3 +226,51 @@ echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
 chmod 600 /home/z/my-project/.github-token
 /home/z/my-project/scripts/push-to-github.sh "feat: remove Impact, Stories, News, and footer newsletter" --no-edit
 ```
+
+---
+
+## Push — 2026-07-14 04:25:00 UTC (pending — token invalid)
+
+- **Commit message:** fix: navbar menu text invisible over hero
+- **Branch:** main
+- **Local commit SHA:** 70afc4d
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Repository:** https://github.com/lilromeo2290/PYC
+- **Status:** ⏳ BLOCKED — token in `/home/z/my-project/.github-token` is still
+  the invalid one (HTTP 401). Run the push script after dropping in a fresh PAT.
+
+### Summary of changes in this push
+
+**Problem:** At the top of the page (hero in view), the desktop nav links used
+`text-[#0E1530]/80` (dark navy) and the logo wordmark used `text-brand` (also
+dark navy). Both were nearly invisible against the dark blue hero overlay and
+only became readable once the user scrolled past the hero.
+
+**Fix:**
+- Desktop nav links now switch to `text-white/90` with a subtle text-shadow
+  when the page is at the top, and back to `text-[#0E1530]/80` once scrolled.
+- Logo wordmark now renders in the `white` variant (white PYC + gold Club +
+  white/70 subtitle) when not scrolled, and the standard `full` variant
+  (dark navy) once scrolled.
+- Added a subtle `bg-gradient-to-b from-black/35 via-black/15 to-transparent`
+  scrim behind the transparent navbar so white text has guaranteed contrast
+  over any hero image area.
+- Mobile hamburger button now has `ring-1 ring-white/20` for better visibility.
+- Bumped scrolled navbar bg from `/85` to `/90` for slightly stronger contrast.
+
+**Verification (via VLM + Agent Browser):**
+- Top of page: menu items, logo wordmark, and Donate Now button all clearly
+  readable against the dark hero.
+- Scrolled: dark navy text on white navbar, clean and professional.
+- Mobile (375px): logo + hamburger visible at top of hero.
+
+Files changed: 1 file, 15 insertions(+), 7 deletions(-)
+- `src/components/pyc/navbar.tsx`
+
+### How to complete this push
+
+```bash
+echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
+chmod 600 /home/z/my-project/.github-token
+/home/z/my-project/scripts/push-to-github.sh "fix: navbar menu text invisible over hero" --no-edit
+```
