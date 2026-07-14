@@ -760,3 +760,21 @@ b19aa8f content: update Our Motto section with full user-provided text (foundati
  src/components/pyc/impact.tsx           |   0
  src/components/pyc/logo.tsx             |   0
  src/components/pyc/navbar.tsx           |   0
+
+---
+## Push — 2026-07-14 14:19:58 UTC
+
+- **Commit message:** content: remove 'Want to meet the team in person' CTA strip from Executives section
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** f1a52ce3530370a2affc896202ebc3bfd2c90c46
+- **Files changed:**  1 file changed, 17 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+f1a52ce content: remove 'Want to meet the team in person' CTA strip from Executives section
+ src/components/pyc/executives.tsx | 17 -----------------
+ 1 file changed, 17 deletions(-)
+```
