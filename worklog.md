@@ -437,3 +437,64 @@ echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
 chmod 600 /home/z/my-project/.github-token
 /home/z/my-project/scripts/push-to-github.sh "feat: clear all About Us write-up" --no-edit
 ```
+
+---
+
+## Push — 2026-07-14 05:25:00 UTC (pending — token invalid)
+
+- **Commit message:** feat: add About Us dropdown submenu with Our History, Vision and Mission, Our Core Values
+- **Branch:** main
+- **Local commit SHA:** 2fdb955
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Repository:** https://github.com/lilromeo2290/PYC
+- **Status:** ⏳ BLOCKED — token in `/home/z/my-project/.github-token` is still
+  the invalid one (HTTP 401). Run the push script after dropping in a fresh PAT.
+
+### Summary of changes in this push
+
+**Navbar** (`src/components/pyc/navbar.tsx`):
+- Converted "About Us" from a plain link to a dropdown trigger with a
+  ChevronDown icon.
+- **Desktop:** CSS group-hover dropdown showing 3 submenu items in a white card
+  with soft shadow, gold underline animation on the parent link.
+- **Mobile Sheet drawer:** "About Us" is now a toggle button that expands /
+  collapses the 3 submenu items inline (left-border indent + chevron rotation).
+- Submenu links: Our History (`#our-history`), Vision and Mission
+  (`#vision-mission`), Our Core Values (`#core-values`).
+
+**About section** (`src/components/pyc/about.tsx`):
+- Completely rewritten as a single `<section id="about">` wrapper containing
+  three anchored subsections:
+  1. **#our-history** — founding story (14th Feb 2007), image with glass badge,
+     3 stat tiles (2007 / 17+ years / Ewe community).
+  2. **#vision-mission** — two cards side by side: Mission (brand-gradient icon)
+     and Vision (gold-gradient icon), each with rich text.
+  3. **#core-values** — 7 value cards in a grid (Integrity, Leadership,
+     Community, Service, Inclusion, Innovation, Accountability) plus an 8th
+     gold CTA tile linking to `#volunteer`.
+
+**Page** (`src/app/page.tsx`):
+- Re-added `<About />` after `<Hero />`.
+
+**Verification:**
+- Desktop: dropdown appears on hover with 3 submenu items (confirmed via DOM
+  query + VLM).
+- Mobile: tapping "About Us" expands inline submenu (confirmed via VLM
+  screenshot).
+- All 3 anchors exist and scroll correctly.
+- Each section visually verified via VLM: founding date visible, Mission/Vision
+  cards with icons, 7 core values in grid.
+- ESLint passes clean, no console errors.
+
+Files changed: 3 files, 325 insertions(+), 131 deletions(-)
+- `src/components/pyc/navbar.tsx`
+- `src/components/pyc/about.tsx`
+- `src/app/page.tsx`
+
+### How to complete this push
+
+```bash
+echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
+chmod 600 /home/z/my-project/.github-token
+/home/z/my-project/scripts/push-to-github.sh "feat: About Us dropdown submenu with Our History, Vision and Mission, Core Values" --no-edit
+```
