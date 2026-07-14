@@ -558,3 +558,22 @@ c591137 feat: remove hero heading, 4 stat cards, and volunteer avatar stack from
  src/components/pyc/hero.tsx | 182 +++++++-------------------------------------
  1 file changed, 29 insertions(+), 153 deletions(-)
 ```
+
+---
+## Push — 2026-07-14 04:44:08 UTC
+
+- **Commit message:** feat: rename Programs menu to What We Do in navbar and footer
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** ad42d298311d0a2e3b6c64d167670adc7f4e0692
+- **Files changed:**  2 files changed, 2 insertions(+), 2 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+ad42d29 feat: rename Programs menu to What We Do in navbar and footer
+ src/components/pyc/footer.tsx | 2 +-
+ src/components/pyc/navbar.tsx | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+```
