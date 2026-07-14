@@ -194,23 +194,6 @@ export function Executives() {
               />
             ))}
           </div>
-
-          {/* CTA strip */}
-          <div className="reveal mt-10 rounded-[2rem] border border-brand/10 bg-brand-gradient-soft p-8 text-center md:p-10">
-            <h3 className="font-display text-xl font-bold text-[#0E1530] md:text-2xl">
-              Want to meet the team in person?
-            </h3>
-            <p className="mt-2 text-sm text-[#5A6485] max-w-xl mx-auto">
-              Our executives are always glad to welcome new members, partners,
-              and friends of the club. Reach out — we'd love to hear from you.
-            </p>
-            <a
-              href="#contact"
-              className="mt-5 inline-flex items-center gap-2 rounded-full brand-gradient px-6 py-3 text-sm font-semibold text-white shadow-premium hover:bg-brand-deep hover:-translate-y-0.5 transition-all"
-            >
-              <Mail className="size-4" /> Get in Touch
-            </a>
-          </div>
         </div>
       </div>
     </section>
