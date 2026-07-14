@@ -23,7 +23,6 @@ const NAV_LINKS = [
   { label: "Events", href: "#events" },
   { label: "Volunteer", href: "#volunteer" },
   { label: "Donate", href: "#donate" },
-  { label: "News", href: "#news" },
   { label: "Contact", href: "#contact" },
 ];
 
