@@ -334,3 +334,52 @@ echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
 chmod 600 /home/z/my-project/.github-token
 /home/z/my-project/scripts/push-to-github.sh "feat: add Our History, Leadership, Music, and Digital Media sections under About" --no-edit
 ```
+
+---
+
+## Push — 2026-07-14 04:55:00 UTC (pending — token invalid)
+
+- **Commit message:** feat: remove Donate menu item and rename About to About Us
+- **Branch:** main
+- **Local commit SHA:** 7976209
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Repository:** https://github.com/lilromeo2290/PYC
+- **Status:** ⏳ BLOCKED — token in `/home/z/my-project/.github-token` is still
+  the invalid one (HTTP 401). Run the push script after dropping in a fresh PAT.
+
+### Summary of changes in this push
+
+Per user request, two small navbar changes in `src/components/pyc/navbar.tsx`:
+
+1. **Removed the `Donate` entry** from `NAV_LINKS`. This affects both the
+   desktop horizontal menu and the mobile Sheet drawer.
+2. **Renamed `About` to `About Us`** in `NAV_LINKS` (label only — the href
+   still points to `#about`, so all anchor scrolling still works).
+
+Intentionally preserved:
+- The gold **"Donate Now"** CTA button in the navbar (top-right) — this is a
+  call-to-action, not a menu item.
+- The **"Donate Now"** and **"Join as Volunteer"** CTA buttons at the bottom
+  of the mobile Sheet drawer.
+- The full `#donate` section on the home page (with the interactive amount
+  selector) — the Donate Now buttons still scroll there.
+- The **"Donate"** link in the footer Resources column.
+
+**Verification:**
+- Desktop navbar: Home / About Us / Programs / Projects / Gallery / Events /
+  Volunteer / Contact + gold "Donate Now" button.
+- Mobile Sheet drawer: same 8 links + "Donate Now" and "Join as Volunteer"
+  CTA buttons at bottom.
+- `#donate` section still present on the page (confirmed via DOM query).
+- ESLint passes clean, no console errors.
+
+Files changed: 1 file, 1 insertion(+), 2 deletions(-)
+- `src/components/pyc/navbar.tsx`
+
+### How to complete this push
+
+```bash
+echo "ghp_FRESH_PAT_HERE" > /home/z/my-project/.github-token
+chmod 600 /home/z/my-project/.github-token
+/home/z/my-project/scripts/push-to-github.sh "feat: remove Donate menu item and rename About to About Us" --no-edit
+```
