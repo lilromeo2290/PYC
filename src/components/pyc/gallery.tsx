@@ -1,13 +1,22 @@
 "use client";
 
 import * as React from "react";
+import { ArrowRight, Images } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "./section-header";
+import { PYCButton } from "./button";
 
-const CATEGORIES = ["All", "Community", "Education", "Health", "Environment", "Events"] as const;
-type Category = typeof CATEGORIES[number];
+export const CATEGORIES = ["All", "Community", "Education", "Health", "Environment", "Events"] as const;
+export type Category = typeof CATEGORIES[number];
 
-const IMAGES: { src: string; alt: string; category: Exclude<Category, "All">; span?: boolean }[] = [
+export interface GalleryImage {
+  src: string;
+  alt: string;
+  category: Exclude<Category, "All">;
+  span?: boolean;
+}
+
+export const IMAGES: GalleryImage[] = [
   {
     src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80",
     alt: "Volunteers helping children in a rural community",
@@ -62,11 +71,24 @@ const IMAGES: { src: string; alt: string; category: Exclude<Category, "All">; sp
   },
 ];
 
-export function Gallery() {
+interface GalleryProps {
+  /** Limit the number of images shown (home page uses 6). */
+  limit?: number;
+  /** Show the "View Full Gallery" button (home page uses true). */
+  showViewMore?: boolean;
+}
+
+export function Gallery({ limit, showViewMore = false }: GalleryProps = {}) {
   const [filter, setFilter] = React.useState<Category>("All");
 
-  const filtered =
-    filter === "All" ? IMAGES : IMAGES.filter((img) => img.category === filter);
+  const isLimited = typeof limit === "number";
+
+  // For limited (home) view: no filter, just take the first `limit` images
+  const displayed = isLimited
+    ? IMAGES.slice(0, limit)
+    : filter === "All"
+      ? IMAGES
+      : IMAGES.filter((img) => img.category === filter);
 
   return (
     <section id="gallery" className="relative bg-white py-20 md:py-28">
@@ -81,28 +103,30 @@ export function Gallery() {
           description="A glimpse into the people, places, and partnerships that make PYC Club's work possible across the Volta Region."
         />
 
-        {/* Filter pills */}
-        <div className="reveal mt-10 flex flex-wrap justify-center gap-2">
-          {CATEGORIES.map((c) => (
-            <button
-              key={c}
-              onClick={() => setFilter(c)}
-              aria-pressed={filter === c}
-              className={cn(
-                "rounded-full px-5 py-2 text-sm font-semibold transition-all",
-                filter === c
-                  ? "bg-brand text-white shadow-premium"
-                  : "bg-surface text-[#5A6485] hover:bg-brand-soft/10 hover:text-brand"
-              )}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+        {/* Filter pills — only on full gallery page */}
+        {!isLimited && (
+          <div className="reveal mt-10 flex flex-wrap justify-center gap-2">
+            {CATEGORIES.map((c) => (
+              <button
+                key={c}
+                onClick={() => setFilter(c)}
+                aria-pressed={filter === c}
+                className={cn(
+                  "rounded-full px-5 py-2 text-sm font-semibold transition-all",
+                  filter === c
+                    ? "bg-brand text-white shadow-premium"
+                    : "bg-surface text-[#5A6485] hover:bg-brand-soft/10 hover:text-brand"
+                )}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Masonry grid */}
         <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
-          {filtered.map((img, i) => (
+          {displayed.map((img, i) => (
             <figure
               key={`${img.src}-${i}`}
               className={cn(
@@ -132,6 +156,22 @@ export function Gallery() {
             </figure>
           ))}
         </div>
+
+        {/* View Full Gallery button — only on home page (limited view) */}
+        {showViewMore && (
+          <div className="reveal mt-12 flex flex-col items-center gap-3">
+            <p className="text-sm text-[#5A6485]">
+              Showing {displayed.length} of {IMAGES.length} photos
+            </p>
+            <PYCButton asChild variant="primary" size="lg">
+              <a href="/gallery">
+                <Images className="size-5" />
+                View Full Gallery
+                <ArrowRight className="size-4" />
+              </a>
+            </PYCButton>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -32,7 +32,7 @@ export default function Home() {
         <Events />
         <Volunteer />
         <Donate />
-        <Gallery />
+        <Gallery limit={6} showViewMore />
         <Partners />
         <Contact />
       </main>
