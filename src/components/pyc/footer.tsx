@@ -192,17 +192,17 @@ export function Footer() {
             <p>
               © {new Date().getFullYear()} Progressive Youth Club, Ho. All rights reserved.
             </p>
-            <div className="flex gap-6">
-              <Link href="#" className="hover:text-gold transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-gold transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-gold transition-colors">
-                Cookies
-              </Link>
-            </div>
+            <p>
+              Developed and Designed by{" "}
+              <a
+                href="https://clipe233eng.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-gold hover:text-[#E8C766] transition-colors"
+              >
+                CLIPE233 ENGINEERS
+              </a>
+            </p>
           </div>
         </div>
       </div>
