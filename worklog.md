@@ -838,3 +838,23 @@ Verified:
  src/components/pyc/footer.tsx | 22 +++++++++++-----------
  1 file changed, 11 insertions(+), 11 deletions(-)
 ```
+
+---
+## Push — 2026-07-15 14:12:56 UTC
+
+- **Commit message:** feat: limit home gallery to 6 photos with 'View Full Gallery' button linking to new /gallery page
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 1159ead7c110ed70beaa33b2eda0c5dd5c050af1
+- **Files changed:**  3 files changed, 119 insertions(+), 26 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+1159ead feat: limit home gallery to 6 photos with 'View Full Gallery' button linking to new /gallery page
+ src/app/gallery/page.tsx       | 53 +++++++++++++++++++++++++
+ src/app/page.tsx               |  2 +-
+ src/components/pyc/gallery.tsx | 90 ++++++++++++++++++++++++++++++------------
+ 3 files changed, 119 insertions(+), 26 deletions(-)
+```
