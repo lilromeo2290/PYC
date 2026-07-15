@@ -44,12 +44,15 @@ export const metadata: Metadata = {
     url: "https://pycclub.org",
     siteName: "Progressive Youth Club, Ho",
     type: "website",
+    locale: "en_US",
     images: [
       {
         url: "/pyc-og-image.png",
+        secureUrl: "https://pycclub.org/pyc-og-image.png",
         width: 1200,
         height: 630,
-        alt: "Progressive Youth Club, Ho — PYC Club",
+        alt: "Progressive Youth Club, Ho — PYC Club logo on brand blue background",
+        type: "image/png",
       },
     ],
   },
@@ -58,6 +61,7 @@ export const metadata: Metadata = {
     title: "Progressive Youth Club, Ho — We Stand For Support",
     description:
       "Empowering youth. Transforming communities. Join PYC Club in building a stronger, more inclusive future for young people across Ghana.",
+    images: ["/pyc-og-image.png"],
   },
 };
 
