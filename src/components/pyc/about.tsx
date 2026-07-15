@@ -35,8 +35,10 @@ import {
 const HISTORY_IMG =
   "https://images.unsplash.com/photo-1529390070664-5b20b5c2b139?auto=format&fit=crop&w=1100&q=80";
 
-const MUSIC_IMG =
-  "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1100&q=80";
+const MUSIC_BG =
+  "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1100&q=80";
+
+const MUSIC_IMG = "/borborbor-album.jpg";
 
 const VALUES = [
   { icon: Users, label: "Unity" },
@@ -291,7 +293,7 @@ function MusicCulture() {
   return (
     <div className="relative isolate overflow-hidden bg-[#0B1130] py-20 md:py-28">
       <img
-        src={MUSIC_IMG}
+        src={MUSIC_BG}
         alt=""
         aria-hidden
         className="absolute inset-0 -z-20 h-full w-full object-cover opacity-20"
@@ -322,7 +324,7 @@ function MusicCulture() {
                 <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-2xl shadow-premium-lg">
                   <img
                     src={MUSIC_IMG}
-                    alt="Borborbor music performance by Progressive Youth Club"
+                    alt="Borborbor album cover — Nu Gawoe Nye Mawu Drado Di Nam by Progressive Youth Club, featuring the track list and group photo"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
