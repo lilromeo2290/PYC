@@ -951,3 +951,46 @@ d281d21 feat: add WhatsApp-compatible Open Graph metadata so logo shows in link 
  src/components/pyc/about.tsx    |  10 ++++++----
  4 files changed, 45 insertions(+), 4 deletions(-)
 ```
+
+---
+## Push — 2026-07-15 19:35:20 UTC
+
+- **Commit message:** content: replace Francis Aba initials avatar with real photo
+
+Replaced the 'FA' text initials avatars with the actual photo of
+Mr. Francis Aba in both places where his leader spotlight appears.
+
+Changes:
+- Optimized the uploaded Francis.jpg (719x607, 124KB) into web-ready
+  assets via scripts/optimize-francis-photo.js using sharp:
+    - public/francis-aba.jpg (400x400 square crop, 37KB)
+    - public/francis-aba-large.jpg (600x600, 67KB for high-DPI)
+- Updated src/components/pyc/executives.tsx LeaderCard:
+  Replaced the brand-gradient circle with 'FA' initials with a circular
+  photo using <img src='/francis-aba.jpg'> with overflow-hidden.
+  Kept the gold crown badge in the corner.
+- Updated src/components/pyc/about.tsx LeadershipGrowth section:
+  Same replacement — circular photo instead of 'FA' initials.
+  Kept the gold crown badge and 'Founder & Leader' title.
+
+Verified via VLM: circular photo of Mr. Francis Aba (speaking into a
+microphone) is now visible in the leader spotlight card, with the gold
+crown badge and 'Chairman' title. Image loads at 400x400 from
+/francis-aba.jpg (HTTP 200, 37KB). ESLint passes clean.
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** f2e73edc0f1ab93803958f613cc57dd03dac8183
+- **Files changed:**  5 files changed, 53 insertions(+), 8 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+f2e73ed content: replace Francis Aba initials avatar with real photo
+ public/francis-aba-large.jpg      | Bin 0 -> 68545 bytes
+ public/francis-aba.jpg            | Bin 0 -> 37554 bytes
+ scripts/optimize-francis-photo.js |  39 ++++++++++++++++++++++++++++++++++++++
+ src/components/pyc/about.tsx      |  11 +++++++----
+ src/components/pyc/executives.tsx |  11 +++++++----
+ 5 files changed, 53 insertions(+), 8 deletions(-)
+```
