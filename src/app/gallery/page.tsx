@@ -6,7 +6,6 @@ import { Gallery } from "@/components/pyc/gallery";
 import { Footer } from "@/components/pyc/footer";
 import { FloatingActions } from "@/components/pyc/floating-actions";
 import { useScrollReveal } from "@/components/pyc/use-scroll-reveal";
-import { Hero } from "@/components/pyc/hero";
 
 export default function GalleryPage() {
   useScrollReveal();
