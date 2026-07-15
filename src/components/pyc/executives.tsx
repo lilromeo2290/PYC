@@ -212,10 +212,13 @@ function LeaderCard({ exec }: { exec: Executive }) {
         {/* Portrait */}
         <div className="flex justify-center">
           <div className="relative">
-            <div className="size-40 rounded-full brand-gradient flex items-center justify-center shadow-premium-lg ring-4 ring-gold/30 md:size-48">
-              <span className="font-display text-5xl font-extrabold text-white md:text-6xl">
-                {exec.initials}
-              </span>
+            <div className="size-40 rounded-full overflow-hidden shadow-premium-lg ring-4 ring-gold/30 md:size-48">
+              <img
+                src="/francis-aba.jpg"
+                alt="Mr. Francis Aba — Founder & Chairman of Progressive Youth Club"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
             <span className="absolute -top-2 -right-2 inline-flex size-14 items-center justify-center rounded-full gold-gradient text-[#182368] shadow-gold ring-4 ring-white">
               <Crown className="size-7" />
