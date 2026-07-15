@@ -858,3 +858,54 @@ Verified:
  src/components/pyc/gallery.tsx | 90 ++++++++++++++++++++++++++++++------------
  3 files changed, 119 insertions(+), 26 deletions(-)
 ```
+
+---
+## Push — 2026-07-15 14:17:53 UTC
+
+- **Commit message:** fix: resolve deployment failures — remove standalone output, lazy-init Prisma, add vercel.json
+
+Multiple issues were preventing successful deployment to Vercel/Netlify:
+
+1. next.config.ts had output: 'standalone' which is sandbox-specific and
+   causes issues on deployment platforms that use their own deployment
+   mechanism. Removed it.
+
+2. package.json had a postbuild script with shell conditionals that could
+   fail on non-Unix build agents. Removed it (the sandbox's own .zscripts
+   handles standalone copying separately).
+
+3. src/lib/db.ts was eagerly instantiating PrismaClient at module load,
+   which would try to connect to DATABASE_URL during build. On Vercel,
+   the sandbox-specific DATABASE_URL (file:/home/z/my-project/db/custom.db)
+   doesn't exist, causing build failures. Replaced with lazy Proxy-based
+   initialization that only creates the client when actually accessed.
+
+4. src/app/gallery/page.tsx had an unused Hero import that could trigger
+   warnings. Removed it.
+
+5. Added vercel.json to explicitly configure Vercel deployment with the
+   correct build command and framework.
+
+Verified:
+- bun run lint: passes with zero errors
+- bun run build: compiles successfully in 7.2s, generates all 5 pages
+  (/, /_not-found, /api, /gallery)
+- Both routes (/ and /gallery) return HTTP 200 in dev server
+- No standalone output directory is created (Vercel doesn't need it)
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** cd557dd7bdf9514db4593f2624a241ea274f4170
+- **Files changed:**  5 files changed, 22 insertions(+), 7 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+cd557dd fix: resolve deployment failures — remove standalone output, lazy-init Prisma, add vercel.json
+ next.config.ts           |  1 -
+ package.json             |  1 -
+ src/app/gallery/page.tsx |  1 -
+ src/lib/db.ts            | 21 +++++++++++++++++----
+ vercel.json              |  5 +++++
+ 5 files changed, 22 insertions(+), 7 deletions(-)
+```
