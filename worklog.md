@@ -930,3 +930,24 @@ d281d21 feat: add WhatsApp-compatible Open Graph metadata so logo shows in link 
  vercel.json              | 0
  4 files changed, 10 insertions(+), 1 deletion(-)
 ```
+
+---
+## Push — 2026-07-15 18:39:44 UTC
+
+- **Commit message:** content: replace Borborbor album image with actual album cover
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 46dee9101aebbff04f5642ee8dd7dc24cdfdafbe
+- **Files changed:**  4 files changed, 45 insertions(+), 4 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+46dee91 content: replace Borborbor album image with actual album cover
+ public/borborbor-album.jpg      | Bin 0 -> 402281 bytes
+ public/borborbor-album.webp     | Bin 0 -> 413950 bytes
+ scripts/optimize-album-cover.js |  39 +++++++++++++++++++++++++++++++++++++++
+ src/components/pyc/about.tsx    |  10 ++++++----
+ 4 files changed, 45 insertions(+), 4 deletions(-)
+```
