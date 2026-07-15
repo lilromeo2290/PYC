@@ -909,3 +909,24 @@ cd557dd fix: resolve deployment failures — remove standalone output, lazy-init
  vercel.json              |  5 +++++
  5 files changed, 22 insertions(+), 7 deletions(-)
 ```
+
+---
+## Push — 2026-07-15 16:52:55 UTC
+
+- **Commit message:** feat: add WhatsApp-compatible Open Graph metadata so logo shows in link previews
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** d281d21e1dd3d4027d164b25407f1942bb11a434
+- **Files changed:**  4 files changed, 10 insertions(+), 1 deletion(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+d281d21 feat: add WhatsApp-compatible Open Graph metadata so logo shows in link previews
+ public/robots.txt        | 5 +++++
+ src/app/gallery/page.tsx | 0
+ src/app/layout.tsx       | 6 +++++-
+ vercel.json              | 0
+ 4 files changed, 10 insertions(+), 1 deletion(-)
+```
