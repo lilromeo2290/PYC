@@ -1018,3 +1018,77 @@ f2e73ed content: replace Francis Aba initials avatar with real photo
  src/components/pyc/about.tsx      |   4 ++--
  7 files changed, 2 insertions(+), 2 deletions(-)
 ```
+
+---
+## Push — 2026-07-16 20:50:50 UTC
+
+- **Commit message:** feat: set up public/gallery/ folder structure for ~100 user-uploaded images
+
+Created a proper folder structure under public/gallery/ for uploading
+real PYC Club photos, organized by category. The gallery component now
+reads from a local manifest instead of hardcoded Unsplash URLs.
+
+Folder structure:
+  public/gallery/
+  ├── community/       — Community outreach, gatherings, volunteer work
+  ├── education/       — Classroom sessions, scholarships, bootcamps
+  ├── health/          — Health camps, screenings, awareness drives
+  ├── environment/     — Tree planting, clean-ups, climate activities
+  ├── events/          — Borborbor festival, galas, summits, celebrations
+  └── README.md        — Instructions for adding images
+
+Workflow for uploading ~100 images:
+1. Drop .jpg/.png files into the appropriate category subfolder
+2. Run: bun run scripts/scan-gallery.js
+3. The script auto-generates src/data/gallery-images.json with:
+   - src: /gallery/<category>/<filename>
+   - alt: title-cased filename (e.g. 'ho-clean-water.jpg' → 'Ho Clean Water')
+   - category: title-cased folder name
+   - span: first image of each category gets a taller tile for visual variety
+4. Website automatically picks up the new images — no code changes needed
+
+The scanner:
+- Validates file extensions (.jpg, .jpeg, .png, .webp, .avif)
+- Warns on images larger than 500KB
+- Sorts files alphabetically for consistent ordering
+- Generates descriptive alt text from filenames
+
+Gallery component changes (src/components/pyc/gallery.tsx):
+- Imports the manifest from src/data/gallery-images.json
+- Falls back to the default Unsplash collection if the manifest is empty
+  (so the gallery still works before any images are uploaded)
+- Uses local images when available, Unsplash defaults otherwise
+
+Added 5 sample images (one per category) to verify the structure works:
+- public/gallery/community/volunteers-helping-children.jpg
+- public/gallery/education/classroom-session.jpg
+- public/gallery/health/outreach-camp.jpg
+- public/gallery/environment/tree-planting.jpg
+- public/gallery/events/youth-summit.jpg
+
+Verified:
+- Home page gallery: 5 local images, 'Showing 5 of 5 photos'
+- /gallery page: 5 images with 6 filter pills (All + 5 categories)
+- Images load from /gallery/<category>/<filename> (HTTP 200)
+- ESLint passes clean
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** ab40be26c56ba392739eca1375de5c755c7023f8
+- **Files changed:**  9 files changed, 200 insertions(+), 2 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+ab40be2 feat: set up public/gallery/ folder structure for ~100 user-uploaded images
+ public/gallery/README.md                           |  44 +++++++++
+ .../community/volunteers-helping-children.jpg      | Bin 0 -> 93101 bytes
+ public/gallery/education/classroom-session.jpg     | Bin 0 -> 28465 bytes
+ public/gallery/environment/tree-planting.jpg       | Bin 0 -> 99752 bytes
+ public/gallery/events/youth-summit.jpg             | Bin 0 -> 91065 bytes
+ public/gallery/health/outreach-camp.jpg            | Bin 0 -> 33677 bytes
+ scripts/scan-gallery.js                            | 103 +++++++++++++++++++++
+ src/components/pyc/gallery.tsx                     |  23 ++++-
+ src/data/gallery-images.json                       |  32 +++++++
+ 9 files changed, 200 insertions(+), 2 deletions(-)
+```
