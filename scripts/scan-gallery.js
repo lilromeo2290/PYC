@@ -1,0 +1,103 @@
+/**
+ * scan-gallery.js
+ *
+ * Scans public/gallery/* for image files and generates
+ * public/gallery-images.json — the manifest the Gallery component reads from.
+ *
+ * Usage:
+ *   bun run scripts/scan-gallery.js
+ *
+ * The manifest format:
+ *   [
+ *     { "src": "/gallery/community/photo.jpg", "alt": "Community photo", "category": "Community" },
+ *     ...
+ *   ]
+ *
+ * Just drop images into the category subfolders and re-run this script.
+ * No code changes needed.
+ */
+import { readdirSync, statSync, writeFileSync, existsSync } from "node:fs";
+import { join, extname, basename } from "node:path";
+
+const GALLERY_DIR = "/home/z/my-project/public/gallery";
+const MANIFEST_PATH = "/home/z/my-project/src/data/gallery-images.json";
+const PUBLIC_ROOT = "/home/z/my-project/public";
+
+const CATEGORIES = ["community", "education", "health", "environment", "events"];
+const VALID_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp", ".avif"];
+
+function humanToTitle(slug) {
+  return slug
+    .replace(/\.[^.]+$/, "") // strip extension
+    .replace(/[-_]/g, " ") // hyphens/underscores to spaces
+    .replace(/\b\w/g, (c) => c.toUpperCase()); // title case
+}
+
+function scanCategory(categorySlug) {
+  const dir = join(GALLERY_DIR, categorySlug);
+  if (!existsSync(dir)) return [];
+
+  const files = readdirSync(dir).sort();
+  const images = [];
+
+  for (const file of files) {
+    const fullPath = join(dir, file);
+    const ext = extname(file).toLowerCase();
+
+    // Skip README and non-image files
+    if (file.toUpperCase() === "README.MD" || !VALID_EXTENSIONS.includes(ext)) {
+      continue;
+    }
+
+    const stats = statSync(fullPath);
+    const sizeKB = Math.round(stats.size / 1024);
+
+    // Warn on large images
+    if (sizeKB > 500) {
+      console.warn(`  ⚠ ${categorySlug}/${file} is ${sizeKB}KB — consider optimizing`);
+    }
+
+    // Convert absolute path to /gallery/category/file
+    const relativePath = fullPath.replace(PUBLIC_ROOT, "");
+
+    images.push({
+      src: relativePath,
+      alt: humanToTitle(file),
+      category: humanToTitle(categorySlug),
+      // Mark the first image of each category as a "span" (taller) tile
+      // for visual variety in the masonry grid
+      span: images.length === 0,
+    });
+  }
+
+  return images;
+}
+
+function main() {
+  console.log("Scanning public/gallery/ for images...\n");
+
+  if (!existsSync(GALLERY_DIR)) {
+    console.error(`ERROR: Gallery directory not found at ${GALLERY_DIR}`);
+    console.error("Create it with: mkdir -p public/gallery/{community,education,health,environment,events}");
+    process.exit(1);
+  }
+
+  const allImages = [];
+  for (const category of CATEGORIES) {
+    const images = scanCategory(category);
+    console.log(`  ${category.padEnd(12)} ${images.length} image${images.length === 1 ? "" : "s"}`);
+    allImages.push(...images);
+  }
+
+  console.log(`\nTotal: ${allImages.length} images`);
+
+  if (allImages.length === 0) {
+    console.log("\n⚠ No images found. Drop .jpg/.png files into the category");
+    console.log("  subfolders under public/gallery/ and re-run this script.");
+  }
+
+  writeFileSync(MANIFEST_PATH, JSON.stringify(allImages, null, 2));
+  console.log(`\n✓ Manifest written to public/gallery-images.json`);
+}
+
+main();
