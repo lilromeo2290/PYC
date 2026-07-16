@@ -1092,3 +1092,47 @@ ab40be2 feat: set up public/gallery/ folder structure for ~100 user-uploaded ima
  src/data/gallery-images.json                       |  32 +++++++
  9 files changed, 200 insertions(+), 2 deletions(-)
 ```
+
+---
+## Push — 2026-07-16 21:01:41 UTC
+
+- **Commit message:** fix: convert gallery manifest from JSON to TypeScript module for deployment compatibility
+
+The JSON import in the gallery component (import localImages from
+'@/data/gallery-images.json') was causing deployment failures on some
+platforms. JSON imports in client components can have resolution issues
+with certain bundlers and deployment platforms.
+
+Changes:
+- Converted src/data/gallery-images.json to src/data/gallery-images.ts
+  (a TypeScript module with proper type definitions)
+- Updated src/components/pyc/gallery.tsx to import from the .ts module
+  instead of .json
+- Updated scripts/scan-gallery.js to write a TypeScript file instead of
+  JSON, with proper type annotations and export interface
+
+The TypeScript module format is more reliable across deployment platforms
+(Vercel, Netlify, etc.) because it's processed by the standard TypeScript
+compiler rather than relying on JSON import resolution which can vary
+between bundler configurations.
+
+Verified:
+- bun run lint: passes with zero errors
+- bun run build: compiles successfully in 6.6s, generates all 5 pages
+- Both routes (/ and /gallery) work correctly
+- Gallery loads the 5 sample local images
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 48d989312c31dc0c9cea3e52c65196f5fe70258e
+- **Files changed:**  3 files changed, 36 insertions(+), 6 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+48d9893 fix: convert gallery manifest from JSON to TypeScript module for deployment compatibility
+ scripts/scan-gallery.js                            | 23 +++++++++++++++++++---
+ src/components/pyc/gallery.tsx                     |  2 +-
+ .../{gallery-images.json => gallery-images.ts}     | 17 ++++++++++++++--
+ 3 files changed, 36 insertions(+), 6 deletions(-)
+```
