@@ -231,7 +231,7 @@ function LeadershipGrowth() {
                 <div className="size-40 rounded-full overflow-hidden shadow-premium-lg ring-4 ring-gold/20">
                   <img
                     src="/francis-aba.jpg"
-                    alt="Mr. Francis Aba — Founder & Leader of Progressive Youth Club"
+                    alt="Mr. Francis Aba — Chairman of Progressive Youth Club"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
@@ -243,7 +243,7 @@ function LeadershipGrowth() {
               <h3 className="mt-5 font-display text-xl font-bold text-[#0E1530]">
                 Mr. Francis Aba
               </h3>
-              <p className="text-sm text-brand font-semibold">Founder & Leader</p>
+              <p className="text-sm text-brand font-semibold">Chairman</p>
               <p className="text-xs text-[#5A6485] mt-1">
                 Progressive Youth Club, Ho
               </p>
