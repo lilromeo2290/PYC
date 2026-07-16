@@ -994,3 +994,27 @@ f2e73ed content: replace Francis Aba initials avatar with real photo
  src/components/pyc/executives.tsx |  11 +++++++----
  5 files changed, 53 insertions(+), 8 deletions(-)
 ```
+
+---
+## Push — 2026-07-16 20:25:16 UTC
+
+- **Commit message:** content: change Francis Aba title from 'Founder & Leader' to 'Chairman'
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 2714e92fa9baa1b17c1dba258aaec9dccf707ba1
+- **Files changed:**  7 files changed, 2 insertions(+), 2 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+2714e92 content: change Francis Aba title from 'Founder & Leader' to 'Chairman'
+ public/borborbor-album.jpg        | Bin
+ public/borborbor-album.webp       | Bin
+ public/francis-aba-large.jpg      | Bin
+ public/francis-aba.jpg            | Bin
+ scripts/optimize-album-cover.js   |   0
+ scripts/optimize-francis-photo.js |   0
+ src/components/pyc/about.tsx      |   4 ++--
+ 7 files changed, 2 insertions(+), 2 deletions(-)
+```
