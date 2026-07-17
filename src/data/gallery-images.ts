@@ -9,6 +9,13 @@ export interface GalleryImage {
   span?: boolean;
 }
 
-const localImages: GalleryImage[] = [];
+const localImages: GalleryImage[] = [
+  {
+    "src": "/gallery/events/pyc-panel-discussion.jpg",
+    "alt": "Pyc Panel Discussion",
+    "category": "Events",
+    "span": true
+  }
+];
 
 export default localImages;
