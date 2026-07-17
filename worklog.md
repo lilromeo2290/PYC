@@ -1159,3 +1159,47 @@ Verified:
  src/data/gallery-images.ts                         |  33 +--------------------
  6 files changed, 1 insertion(+), 32 deletions(-)
 ```
+
+---
+## Push — 2026-07-17 03:58:09 UTC
+
+- **Commit message:** content: add first real gallery image — PYC panel discussion (Events)
+
+Processed the uploaded 5B8A0280.JPG (6720x4480, 6.3MB Canon EOS R photo)
+into a web-optimized gallery image.
+
+Changes:
+- Created scripts/optimize-gallery-image.js — a reusable sharp-based
+  pipeline that resizes to max 1200px wide and converts to progressive
+  JPEG at 82% quality. Usage:
+    bun run scripts/optimize-gallery-image.js <filename> <category> <name>
+- Optimized the photo to public/gallery/events/pyc-panel-discussion.jpg
+  (1200px wide, 118KB — 98% size reduction from 6.3MB)
+- Regenerated src/data/gallery-images.ts — now contains 1 image:
+    { src: '/gallery/events/pyc-panel-discussion.jpg',
+      alt: 'Pyc Panel Discussion',
+      category: 'Events',
+      span: true }
+
+The image shows three people in white PYC shirts at a panel discussion
+table with water bottles, flowers, and a microphone.
+
+Verified:
+- bun run lint: passes clean
+- Home page gallery: 1 figure using the local image (no Unsplash fallback)
+- Image loads at /gallery/events/pyc-panel-discussion.jpg (HTTP 200)
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 354c409a5da2dd6a74495826e423e60519bbf03f
+- **Files changed:**  3 files changed, 48 insertions(+), 1 deletion(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+354c409 content: add first real gallery image — PYC panel discussion (Events)
+ public/gallery/events/pyc-panel-discussion.jpg | Bin 0 -> 120701 bytes
+ scripts/optimize-gallery-image.js              |  40 +++++++++++++++++++++++++
+ src/data/gallery-images.ts                     |   9 +++++-
+ 3 files changed, 48 insertions(+), 1 deletion(-)
+```
