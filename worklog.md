@@ -1223,3 +1223,40 @@ Verified:
  src/components/pyc/gallery.tsx |  46 +++++++++++-
  3 files changed, 250 insertions(+), 9 deletions(-)
 ```
+
+---
+## Push — 2026-07-18 10:59:12 UTC
+
+- **Commit message:** fix: resolve TypeScript error in db.ts Proxy type conversion
+
+The Proxy type conversion in src/lib/db.ts was using an invalid cast
+from PrismaClient to Record<string | symbol, unknown>, which TypeScript
+flagged as a type error (TS2352). While next.config.ts has
+ignoreBuildErrors: true, some deployment platforms run their own
+TypeScript validation that could fail on this.
+
+Fixed by adding an intermediate 'unknown' cast to satisfy the type
+checker:
+  const client = globalForPrisma.prisma as unknown as Record<
+    string | symbol,
+    unknown
+  >
+
+Verified:
+- bun run lint: passes with zero errors
+- bun run build: compiles successfully, all 5 routes generated
+- npx tsc --noEmit: no errors in src/ (only preinstalled skills folder
+  has errors, which is gitignored and not deployed)
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 77b4bfe63191df40f162f9ebc02e1ca2d59304dc
+- **Files changed:**  1 file changed, 5 insertions(+), 1 deletion(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+77b4bfe fix: resolve TypeScript error in db.ts Proxy type conversion
+ src/lib/db.ts | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+```
