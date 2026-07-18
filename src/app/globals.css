@@ -166,7 +166,8 @@
   }
   .hero-overlay {
     background-image:
-      linear-gradient(115deg, rgba(24,35,104,0.92) 0%, rgba(31,46,138,0.78) 40%, rgba(31,46,138,0.45) 100%);
+      linear-gradient(115deg, rgba(24,35,104,0.75) 0%, rgba(31,46,138,0.45) 40%, rgba(31,46,138,0.20) 100%),
+      linear-gradient(to top, rgba(11,17,48,0.60) 0%, transparent 30%);
   }
   .glass-card {
     background: rgba(255, 255, 255, 0.65);

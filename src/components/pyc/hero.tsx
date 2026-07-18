@@ -46,13 +46,13 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="text-white">
+          <div className="text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">
             <div className="reveal reveal-delay-1 inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/90 backdrop-blur">
               <Sparkles className="size-3.5 text-gold" />
               Youth-Led NGO in the Volta Region
             </div>
 
-            <p className="reveal reveal-delay-3 mt-8 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
+            <p className="reveal reveal-delay-3 mt-8 max-w-2xl text-lg leading-relaxed text-white md:text-xl [text-shadow:0_2px_16px_rgba(0,0,0,0.6)]">
               Progressive Youth Club, Ho is dedicated to empowering young
               people through education, leadership, community development,
               advocacy, environmental sustainability, and social support.
