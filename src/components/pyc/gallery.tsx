@@ -85,7 +85,7 @@ const DEFAULT_IMAGES: GalleryImage[] = [
 ];
 
 // Use local images if the manifest has any, otherwise fall back to defaults.
-const IMAGES: GalleryImage[] =
+const STATIC_IMAGES: GalleryImage[] =
   Array.isArray(localImages) && localImages.length > 0
     ? (localImages as GalleryImage[])
     : DEFAULT_IMAGES;
@@ -102,6 +102,21 @@ interface GalleryProps {
 export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryProps = {}) {
   const [filter, setFilter] = React.useState<Category>("All");
   const [visibleCount, setVisibleCount] = React.useState(pageSize);
+  // Fetch the latest image count from the API (for dynamic uploads)
+  const [dynamicTotal, setDynamicTotal] = React.useState<number | null>(null);
+
+  React.useEffect(() => {
+    // Check if we're on the full gallery page (not the home preview)
+    if (typeof limit === "number") return;
+    fetch("/api/upload")
+      .then((res) => res.ok ? res.json() : null)
+      .then((data) => {
+        if (data?.total && data.total !== STATIC_IMAGES.length) {
+          setDynamicTotal(data.total);
+        }
+      })
+      .catch(() => {});
+  }, [limit]);
 
   const isLimited = typeof limit === "number";
 
@@ -112,10 +127,10 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
 
   // For limited (home) view: no filter, just take the first `limit` images
   const filtered = isLimited
-    ? IMAGES.slice(0, limit)
+    ? STATIC_IMAGES.slice(0, limit)
     : filter === "All"
-      ? IMAGES
-      : IMAGES.filter((img) => img.category === filter);
+      ? STATIC_IMAGES
+      : STATIC_IMAGES.filter((img) => img.category === filter);
 
   // Apply pagination to the full gallery view
   const displayed = isLimited ? filtered : filtered.slice(0, visibleCount);
@@ -134,6 +149,26 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
           }
           description="A glimpse into the people, places, and partnerships that make PYC Club's work possible across the Volta Region."
         />
+
+        {/* New uploads banner — shows when API detects more images than the build-time manifest */}
+        {!isLimited && dynamicTotal !== null && dynamicTotal > STATIC_IMAGES.length && (
+          <div className="reveal mt-6 mx-auto max-w-2xl rounded-2xl bg-brand-gradient-soft border border-brand/15 p-4 text-center">
+            <p className="text-sm text-[#0E1530]">
+              <strong>{dynamicTotal - STATIC_IMAGES.length} new image{dynamicTotal - STATIC_IMAGES.length === 1 ? "" : "s"}</strong> uploaded recently.
+              {" "}
+              <button
+                onClick={() => window.location.reload()}
+                className="text-brand font-semibold underline hover:text-brand-deep"
+              >
+                Refresh page
+              </button>
+              {" "}to see them, or{" "}
+              <a href="/media" className="text-brand font-semibold underline hover:text-brand-deep">
+                upload more
+              </a>.
+            </p>
+          </div>
+        )}
 
         {/* Filter pills — only on full gallery page */}
         {!isLimited && (
@@ -193,7 +228,7 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
         {showViewMore && (
           <div className="reveal mt-12 flex flex-col items-center gap-3">
             <p className="text-sm text-[#5A6485]">
-              Showing {displayed.length} of {IMAGES.length} photos
+              Showing {displayed.length} of {STATIC_IMAGES.length} photos
             </p>
             <PYCButton asChild variant="primary" size="lg">
               <a href="/gallery">
