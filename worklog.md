@@ -1203,3 +1203,23 @@ Verified:
  src/data/gallery-images.ts                     |   9 +++++-
  3 files changed, 48 insertions(+), 1 deletion(-)
 ```
+
+---
+## Push — 2026-07-18 10:51:00 UTC
+
+- **Commit message:** feat: add gallery pagination + bulk-upload script for 150+ images
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 409f4a510ca9af21e2e6a8f3404a6c5941a9bea8
+- **Files changed:**  3 files changed, 250 insertions(+), 9 deletions(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+409f4a5 feat: add gallery pagination + bulk-upload script for 150+ images
+ public/gallery/README.md       |  58 +++++++++++++--
+ scripts/bulk-upload-gallery.js | 155 +++++++++++++++++++++++++++++++++++++++++
+ src/components/pyc/gallery.tsx |  46 +++++++++++-
+ 3 files changed, 250 insertions(+), 9 deletions(-)
+```
