@@ -1260,3 +1260,77 @@ Verified:
  src/lib/db.ts | 6 +++++-
  1 file changed, 5 insertions(+), 1 deletion(-)
 ```
+
+---
+## Push — 2026-07-18 11:10:39 UTC
+
+- **Commit message:** content: load 14 new gallery images from PYC events
+
+Processed 14 Canon EOS R photos (5B8A*.JPG files, totaling ~94MB) into
+optimized web-ready gallery images using the bulk-upload script.
+
+Each image was:
+- Resized to max 1200px wide
+- Converted to progressive JPEG at 82% quality
+- Average size: ~150KB (down from ~6MB each — 97% reduction)
+
+All 14 images categorized as 'Events':
+- 5b8a0002.jpg (120KB)
+- 5b8a0003.jpg (143KB)
+- 5b8a0005.jpg (107KB)
+- 5b8a0006.jpg (110KB)
+- 5b8a0008.jpg (180KB)
+- 5b8a0009.jpg (169KB)
+- 5b8a0010.jpg (210KB)
+- 5b8a0156.jpg (145KB)
+- 5b8a0165.jpg (185KB)
+- 5b8a0166.jpg (193KB)
+- 5b8a0190.jpg (203KB)
+- 5b8a0205.jpg (210KB)
+- 5b8a0260.jpg (195KB)
+- 5b8a0280.jpg (118KB) — this was the previously uploaded panel discussion
+
+Total gallery now has 15 images (14 new + 1 previous panel discussion).
+The bulk-upload script moved processed files to upload/processed/.
+
+Also removed non-gallery images that the script accidentally picked up:
+- Francis.jpg (already used in Executives section)
+- Logo files (already used as branding)
+- TRACK LIST 3.jpg.jpeg (already used as Borborbor album cover)
+
+Gallery pagination working correctly:
+- /gallery page shows 12 images initially
+- 'Load 3 More Photos' button reveals the remaining 3
+- All images use loading='lazy' for performance
+
+Verified:
+- bun run lint: passes clean
+- bun run build: compiles successfully, all 5 routes generated
+- /gallery page: 12 figures loaded initially, Load More button present
+- **Branch:** main
+- **Author:** PYC Club <pycclub@users.noreply.github.com>
+- **Commit SHA:** 767e21f78c29e06cb6f5aad0dbd84d25ed359277
+- **Files changed:**  15 files changed, 85 insertions(+), 1 deletion(-)
+- **Repository:** https://github.com/lilromeo2290/PYC
+
+### Summary of changes in this push
+
+```
+767e21f content: load 14 new gallery images from PYC events
+ public/gallery/events/5b8a0002.jpg | Bin 0 -> 122584 bytes
+ public/gallery/events/5b8a0003.jpg | Bin 0 -> 146451 bytes
+ public/gallery/events/5b8a0005.jpg | Bin 0 -> 109683 bytes
+ public/gallery/events/5b8a0006.jpg | Bin 0 -> 112743 bytes
+ public/gallery/events/5b8a0008.jpg | Bin 0 -> 184041 bytes
+ public/gallery/events/5b8a0009.jpg | Bin 0 -> 172959 bytes
+ public/gallery/events/5b8a0010.jpg | Bin 0 -> 215253 bytes
+ public/gallery/events/5b8a0156.jpg | Bin 0 -> 148641 bytes
+ public/gallery/events/5b8a0165.jpg | Bin 0 -> 188979 bytes
+ public/gallery/events/5b8a0166.jpg | Bin 0 -> 197768 bytes
+ public/gallery/events/5b8a0190.jpg | Bin 0 -> 207591 bytes
+ public/gallery/events/5b8a0205.jpg | Bin 0 -> 215457 bytes
+ public/gallery/events/5b8a0260.jpg | Bin 0 -> 199571 bytes
+ public/gallery/events/5b8a0280.jpg | Bin 0 -> 120701 bytes
+ src/data/gallery-images.ts         |  86 ++++++++++++++++++++++++++++++++++++-
+ 15 files changed, 85 insertions(+), 1 deletion(-)
+```
