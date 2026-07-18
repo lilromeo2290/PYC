@@ -4,8 +4,7 @@ import { Heart, Users, ArrowRight, PlayCircle, Sparkles } from "lucide-react";
 import { PYCLogo } from "./logo";
 import { PYCButton } from "./button";
 
-const HERO_BG =
-  "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=80";
+const HERO_BG = "/hero-bg.jpg";
 
 export function Hero() {
   return (
@@ -16,7 +15,7 @@ export function Hero() {
       {/* Background image */}
       <img
         src={HERO_BG}
-        alt="Young volunteers from PYC Club supporting their community"
+        alt="Progressive Youth Club members gathered in traditional attire at a cultural celebration"
         className="absolute inset-0 -z-20 h-full w-full object-cover"
         fetchPriority="high"
       />
