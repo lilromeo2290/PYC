@@ -11,10 +11,94 @@ export interface GalleryImage {
 
 const localImages: GalleryImage[] = [
   {
+    "src": "/gallery/events/5b8a0002.jpg",
+    "alt": "5b8a0002",
+    "category": "Events",
+    "span": true
+  },
+  {
+    "src": "/gallery/events/5b8a0003.jpg",
+    "alt": "5b8a0003",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0005.jpg",
+    "alt": "5b8a0005",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0006.jpg",
+    "alt": "5b8a0006",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0008.jpg",
+    "alt": "5b8a0008",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0009.jpg",
+    "alt": "5b8a0009",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0010.jpg",
+    "alt": "5b8a0010",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0156.jpg",
+    "alt": "5b8a0156",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0165.jpg",
+    "alt": "5b8a0165",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0166.jpg",
+    "alt": "5b8a0166",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0190.jpg",
+    "alt": "5b8a0190",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0205.jpg",
+    "alt": "5b8a0205",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0260.jpg",
+    "alt": "5b8a0260",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0280.jpg",
+    "alt": "5b8a0280",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/pyc-panel-discussion.jpg",
     "alt": "Pyc Panel Discussion",
     "category": "Events",
-    "span": true
+    "span": false
   }
 ];
 
