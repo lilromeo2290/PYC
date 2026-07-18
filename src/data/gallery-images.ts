@@ -53,6 +53,60 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0011.jpg",
+    "alt": "5b8a0011",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0012.jpg",
+    "alt": "5b8a0012",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0014.jpg",
+    "alt": "5b8a0014",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0015.jpg",
+    "alt": "5b8a0015",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0016.jpg",
+    "alt": "5b8a0016",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0017.jpg",
+    "alt": "5b8a0017",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0018.jpg",
+    "alt": "5b8a0018",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0019.jpg",
+    "alt": "5b8a0019",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0020.jpg",
+    "alt": "5b8a0020",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0156.jpg",
     "alt": "5b8a0156",
     "category": "Events",
