@@ -203,8 +203,38 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0265.jpg",
+    "alt": "5b8a0265",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0280.jpg",
     "alt": "5b8a0280",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0299.jpg",
+    "alt": "5b8a0299",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0308.jpg",
+    "alt": "5b8a0308",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0400.jpg",
+    "alt": "5b8a0400",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0411.jpg",
+    "alt": "5b8a0411",
     "category": "Events",
     "span": false
   },
