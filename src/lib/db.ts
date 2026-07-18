@@ -18,7 +18,11 @@ export const db = new Proxy({} as PrismaClient, {
     if (!globalForPrisma.prisma) {
       globalForPrisma.prisma = createPrismaClient()
     }
-    const client = globalForPrisma.prisma as Record<string | symbol, unknown>
+    // Use unknown cast to satisfy TypeScript's type checker
+    const client = globalForPrisma.prisma as unknown as Record<
+      string | symbol,
+      unknown
+    >
     return client[prop as string | symbol]
   },
 })
