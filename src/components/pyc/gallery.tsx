@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowRight, Images } from "lucide-react";
+import { ArrowRight, Images, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "./section-header";
 import { PYCButton } from "./button";
@@ -95,19 +95,32 @@ interface GalleryProps {
   limit?: number;
   /** Show the "View Full Gallery" button (home page uses true). */
   showViewMore?: boolean;
+  /** Number of images to load per "page" when paginating (default: 12). */
+  pageSize?: number;
 }
 
-export function Gallery({ limit, showViewMore = false }: GalleryProps = {}) {
+export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryProps = {}) {
   const [filter, setFilter] = React.useState<Category>("All");
+  const [visibleCount, setVisibleCount] = React.useState(pageSize);
 
   const isLimited = typeof limit === "number";
 
+  // Reset pagination when filter changes
+  React.useEffect(() => {
+    setVisibleCount(pageSize);
+  }, [filter, pageSize]);
+
   // For limited (home) view: no filter, just take the first `limit` images
-  const displayed = isLimited
+  const filtered = isLimited
     ? IMAGES.slice(0, limit)
     : filter === "All"
       ? IMAGES
       : IMAGES.filter((img) => img.category === filter);
+
+  // Apply pagination to the full gallery view
+  const displayed = isLimited ? filtered : filtered.slice(0, visibleCount);
+  const hasMore = !isLimited && visibleCount < filtered.length;
+  const remainingCount = filtered.length - visibleCount;
 
   return (
     <section id="gallery" className="relative bg-white py-20 md:py-28">
@@ -189,6 +202,33 @@ export function Gallery({ limit, showViewMore = false }: GalleryProps = {}) {
                 <ArrowRight className="size-4" />
               </a>
             </PYCButton>
+          </div>
+        )}
+
+        {/* Load More button — only on full gallery page with pagination */}
+        {hasMore && (
+          <div className="reveal mt-12 flex flex-col items-center gap-3">
+            <p className="text-sm text-[#5A6485]">
+              Showing {displayed.length} of {filtered.length} photos
+              {remainingCount > 0 && ` · ${remainingCount} more to load`}
+            </p>
+            <PYCButton
+              variant="outline"
+              size="lg"
+              onClick={() => setVisibleCount((c) => c + pageSize)}
+            >
+              <Loader2 className="size-4" />
+              Load {Math.min(pageSize, remainingCount)} More Photos
+            </PYCButton>
+          </div>
+        )}
+
+        {/* End-of-gallery indicator */}
+        {!isLimited && !hasMore && filtered.length > pageSize && (
+          <div className="reveal mt-12 text-center">
+            <p className="text-sm text-[#5A6485]">
+              You've seen all {filtered.length} photos
+            </p>
           </div>
         )}
       </div>
