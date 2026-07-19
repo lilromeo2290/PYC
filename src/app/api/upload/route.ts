@@ -4,6 +4,10 @@ import { join } from "path";
 import { promisify } from "util";
 import sharp from "sharp";
 
+// Allow up to 50MB request body for bulk uploads (5 images × ~10MB each)
+export const maxDuration = 300; // 5 minutes for large batches
+export const dynamic = "force-dynamic";
+
 const writeFileAsync = promisify(writeFile);
 const readFileAsync = promisify(readFile);
 

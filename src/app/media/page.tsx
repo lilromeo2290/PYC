@@ -100,61 +100,87 @@ export default function MediaPage() {
     if (selectedFiles.length === 0) return;
     setUploading(true);
 
-    const formData = new FormData();
-    formData.append("category", category);
-
     const pendingFiles = selectedFiles.filter((f) => f.status === "pending");
-    for (const fileStatus of pendingFiles) {
-      formData.append("files", fileStatus.file);
-    }
 
-    // Mark all as uploading
-    setSelectedFiles((prev) =>
-      prev.map((f) => (f.status === "pending" ? { ...f, status: "uploading" } : f))
-    );
+    // Process files in batches of 5 to avoid request size limits and timeouts
+    const BATCH_SIZE = 5;
 
-    try {
-      const res = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
+    for (let i = 0; i < pendingFiles.length; i += BATCH_SIZE) {
+      const batch = pendingFiles.slice(i, i + BATCH_SIZE);
+      const batchIndices = batch.map((f) => selectedFiles.indexOf(f));
 
-      const data = await res.json();
+      // Mark this batch as uploading
+      setSelectedFiles((prev) =>
+        prev.map((f, idx) =>
+          batchIndices.includes(idx)
+            ? { ...f, status: "uploading" as const }
+            : f
+        )
+      );
 
-      if (res.ok && data.success) {
-        // Mark all as success
+      const formData = new FormData();
+      formData.append("category", category);
+      for (const fileStatus of batch) {
+        formData.append("files", fileStatus.file);
+      }
+
+      try {
+        const res = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          // Mark this batch as success
+          setSelectedFiles((prev) =>
+            prev.map((f, idx) => {
+              if (!batchIndices.includes(idx)) return f;
+              const batchIdx = batchIndices.indexOf(idx);
+              const result = data.images?.[batchIdx];
+              return {
+                ...f,
+                status: "success" as const,
+                message: result ? `${result.size}KB` : "Uploaded",
+                result,
+              };
+            })
+          );
+        } else {
+          // Mark this batch as error
+          setSelectedFiles((prev) =>
+            prev.map((f, idx) =>
+              batchIndices.includes(idx)
+                ? {
+                    ...f,
+                    status: "error" as const,
+                    message: data.error || "Upload failed",
+                  }
+                : f
+            )
+          );
+        }
+      } catch (err) {
+        // Mark this batch as error
         setSelectedFiles((prev) =>
-          prev.map((f, i) => {
-            const result = data.images?.[i];
-            return {
-              ...f,
-              status: "success" as const,
-              message: result ? `${result.size}KB` : "Uploaded",
-              result,
-            };
-          })
-        );
-        fetchStats();
-      } else {
-        setSelectedFiles((prev) =>
-          prev.map((f) => ({
-            ...f,
-            status: "error" as const,
-            message: data.error || "Upload failed",
-          }))
+          prev.map((f, idx) =>
+            batchIndices.includes(idx)
+              ? {
+                  ...f,
+                  status: "error" as const,
+                  message: "Network error",
+                }
+              : f
+          )
         );
       }
-    } catch (err) {
-      setSelectedFiles((prev) =>
-        prev.map((f) => ({
-          ...f,
-          status: "error" as const,
-          message: "Network error",
-        }))
-      );
-    } finally {
-      setUploading(false);
+
+      // Update stats after each batch
+      fetchStats();
     }
+
+    setUploading(false);
   };
 
   const clearAll = () => {
@@ -280,7 +306,9 @@ export default function MediaPage() {
                   Supports JPG, PNG, WebP — up to 10MB per file
                 </p>
                 <p className="mt-1 text-xs text-[#5A6485]/70">
-                  Images are automatically resized to 1200px and compressed
+                  Bulk upload supported — select as many images as you want.
+                  Files are processed in batches of 5 and automatically
+                  resized to 1200px.
                 </p>
               </div>
 
@@ -360,31 +388,59 @@ export default function MediaPage() {
 
                   {/* Upload button */}
                   {pendingCount > 0 && (
-                    <div className="mt-4 flex items-center justify-between">
-                      <p className="text-sm text-[#5A6485]">
-                        {pendingCount} file{pendingCount === 1 ? "" : "s"} ready to upload to{" "}
-                        <strong className="text-brand">
-                          {CATEGORIES.find((c) => c.value === category)?.label}
-                        </strong>
-                      </p>
-                      <PYCButton
-                        onClick={uploadAll}
-                        disabled={uploading}
-                        variant="primary"
-                        size="lg"
-                      >
-                        {uploading ? (
-                          <>
-                            <Loader2 className="size-4 animate-spin" />
-                            Uploading...
-                          </>
-                        ) : (
-                          <>
-                            <Upload className="size-4" />
-                            Upload {pendingCount} Image{pendingCount === 1 ? "" : "s"}
-                          </>
-                        )}
-                      </PYCButton>
+                    <div className="mt-4">
+                      {/* Progress bar */}
+                      {uploading && (
+                        <div className="mb-3">
+                          <div className="h-2 rounded-full bg-surface overflow-hidden">
+                            <div
+                              className="h-full brand-gradient transition-all duration-500"
+                              style={{
+                                width: `${((successCount + errorCount) / (selectedFiles.filter((f) => f.status !== "pending").length + pendingCount)) * 100}%`,
+                              }}
+                            />
+                          </div>
+                          <p className="mt-1 text-xs text-[#5A6485] text-center">
+                            {Math.round(((successCount + errorCount) / (selectedFiles.filter((f) => f.status !== "pending").length + pendingCount)) * 100)}% complete · Batch processing
+                          </p>
+                        </div>
+                      )}
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm text-[#5A6485]">
+                          {uploading ? (
+                            <>
+                              Uploading batch ·{" "}
+                              <strong className="text-brand">{successCount} done</strong>
+                              {errorCount > 0 && <span className="text-red-600"> · {errorCount} failed</span>}
+                            </>
+                          ) : (
+                            <>
+                              {pendingCount} file{pendingCount === 1 ? "" : "s"} ready to upload to{" "}
+                              <strong className="text-brand">
+                                {CATEGORIES.find((c) => c.value === category)?.label}
+                              </strong>
+                            </>
+                          )}
+                        </p>
+                        <PYCButton
+                          onClick={uploadAll}
+                          disabled={uploading}
+                          variant="primary"
+                          size="lg"
+                        >
+                          {uploading ? (
+                            <>
+                              <Loader2 className="size-4 animate-spin" />
+                              Uploading... ({successCount + errorCount}/{selectedFiles.filter((f) => f.status !== "pending").length + pendingCount})
+                            </>
+                          ) : (
+                            <>
+                              <Upload className="size-4" />
+                              Upload {pendingCount} Image{pendingCount === 1 ? "" : "s"}
+                            </>
+                          )}
+                        </PYCButton>
+                      </div>
                     </div>
                   )}
 
