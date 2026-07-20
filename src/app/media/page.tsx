@@ -102,8 +102,8 @@ export default function MediaPage() {
 
     const pendingFiles = selectedFiles.filter((f) => f.status === "pending");
 
-    // Process files in batches of 5 to avoid request size limits and timeouts
-    const BATCH_SIZE = 5;
+    // Process files in batches of 10 to handle bulk uploads efficiently
+    const BATCH_SIZE = 10;
 
     for (let i = 0; i < pendingFiles.length; i += BATCH_SIZE) {
       const batch = pendingFiles.slice(i, i + BATCH_SIZE);
@@ -307,7 +307,7 @@ export default function MediaPage() {
                 </p>
                 <p className="mt-1 text-xs text-[#5A6485]/70">
                   Bulk upload supported — select as many images as you want.
-                  Files are processed in batches of 5 and automatically
+                  Files are processed in batches of 10 and automatically
                   resized to 1200px.
                 </p>
               </div>
