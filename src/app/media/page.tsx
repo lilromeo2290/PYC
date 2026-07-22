@@ -9,6 +9,8 @@ import {
   Loader2,
   FolderOpen,
   ArrowRight,
+  AlertCircle,
+  PartyPopper,
 } from "lucide-react";
 import { Navbar } from "@/components/pyc/navbar";
 import { Footer } from "@/components/pyc/footer";
@@ -43,11 +45,13 @@ export default function MediaPage() {
   const [selectedFiles, setSelectedFiles] = React.useState<FileStatus[]>([]);
   const [category, setCategory] = React.useState("events");
   const [uploading, setUploading] = React.useState(false);
+  const [uploadComplete, setUploadComplete] = React.useState(false);
   const [galleryStats, setGalleryStats] = React.useState<{
     total: number;
     counts: Record<string, number>;
   } | null>(null);
   const [dragActive, setDragActive] = React.useState(false);
+  const statusRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   // Fetch current gallery stats
@@ -69,6 +73,7 @@ export default function MediaPage() {
 
   const handleFiles = (files: FileList | null) => {
     if (!files) return;
+    setUploadComplete(false);
     const newFiles: FileStatus[] = Array.from(files)
       .filter((f) => f.type.startsWith("image/"))
       .map((f) => ({ file: f, status: "pending" as const }));
@@ -99,6 +104,12 @@ export default function MediaPage() {
   const uploadAll = async () => {
     if (selectedFiles.length === 0) return;
     setUploading(true);
+    setUploadComplete(false);
+
+    // Scroll to status area
+    setTimeout(() => {
+      statusRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
 
     const pendingFiles = selectedFiles.filter((f) => f.status === "pending");
 
@@ -181,6 +192,12 @@ export default function MediaPage() {
     }
 
     setUploading(false);
+    setUploadComplete(true);
+
+    // Scroll to show the completion message
+    setTimeout(() => {
+      statusRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   };
 
   const clearAll = () => {
@@ -386,41 +403,111 @@ export default function MediaPage() {
                     ))}
                   </div>
 
-                  {/* Upload button */}
-                  {pendingCount > 0 && (
-                    <div className="mt-4">
-                      {/* Progress bar */}
-                      {uploading && (
-                        <div className="mb-3">
-                          <div className="h-2 rounded-full bg-surface overflow-hidden">
-                            <div
-                              className="h-full brand-gradient transition-all duration-500"
-                              style={{
-                                width: `${((successCount + errorCount) / (selectedFiles.filter((f) => f.status !== "pending").length + pendingCount)) * 100}%`,
-                              }}
-                            />
-                          </div>
-                          <p className="mt-1 text-xs text-[#5A6485] text-center">
-                            {Math.round(((successCount + errorCount) / (selectedFiles.filter((f) => f.status !== "pending").length + pendingCount)) * 100)}% complete · Batch processing
-                          </p>
+                  {/* Upload button + Status banner */}
+                  <div ref={statusRef} className="mt-4 scroll-mt-32">
+
+                    {/* PROMINENT STATUS BANNER — always visible during/after upload */}
+                    {(uploading || uploadComplete || errorCount > 0) && (
+                      <div
+                        className={cn(
+                          "mb-4 rounded-2xl border-2 p-5 text-center",
+                          uploadComplete && errorCount === 0
+                            ? "bg-green-50 border-green-300"
+                            : errorCount > 0 && !uploading
+                              ? "bg-amber-50 border-amber-300"
+                              : "bg-brand-gradient-soft border-brand/20"
+                        )}
+                      >
+                        {/* Uploading state */}
+                        {uploading && (
+                          <>
+                            <div className="flex items-center justify-center gap-3 mb-3">
+                              <Loader2 className="size-6 text-brand animate-spin" />
+                              <p className="font-display text-lg font-bold text-brand">
+                                Uploading images...
+                              </p>
+                            </div>
+                            <p className="text-sm text-[#0E1530]">
+                              Processing batch — <strong>{successCount}</strong> of{" "}
+                              <strong>{selectedFiles.length}</strong> images uploaded
+                              {errorCount > 0 && <> · <span className="text-red-600">{errorCount} failed</span></>}
+                            </p>
+                          </>
+                        )}
+
+                        {/* Complete state — all success */}
+                        {uploadComplete && errorCount === 0 && (
+                          <>
+                            <div className="flex items-center justify-center gap-3 mb-2">
+                              <PartyPopper className="size-8 text-green-600" />
+                              <p className="font-display text-xl font-bold text-green-800">
+                                Upload Complete!
+                              </p>
+                            </div>
+                            <p className="text-sm text-green-700">
+                              <strong>{successCount}</strong> image{successCount === 1 ? "" : "s"} successfully uploaded to{" "}
+                              <strong>{CATEGORIES.find((c) => c.value === category)?.label}</strong>.
+                              The gallery now has <strong>{galleryStats?.total || 0}</strong> total images.
+                            </p>
+                            <a
+                              href="/gallery"
+                              className="mt-3 inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-green-700 transition-colors"
+                            >
+                              <Images className="size-4" />
+                              View Gallery Now
+                              <ArrowRight className="size-4" />
+                            </a>
+                          </>
+                        )}
+
+                        {/* Complete state — some errors */}
+                        {uploadComplete && errorCount > 0 && (
+                          <>
+                            <div className="flex items-center justify-center gap-3 mb-2">
+                              <AlertCircle className="size-8 text-amber-600" />
+                              <p className="font-display text-xl font-bold text-amber-800">
+                                Upload Complete with Errors
+                              </p>
+                            </div>
+                            <p className="text-sm text-amber-700">
+                              <strong>{successCount}</strong> image{successCount === 1 ? "" : "s"} uploaded successfully,
+                              but <strong>{errorCount}</strong> failed. You can try uploading the failed ones again.
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Progress bar — visible during upload */}
+                    {uploading && (
+                      <div className="mb-4">
+                        <div className="h-3 rounded-full bg-surface overflow-hidden border border-[#E3E8F2]">
+                          <div
+                            className="h-full brand-gradient transition-all duration-500 ease-out"
+                            style={{
+                              width: `${selectedFiles.length > 0 ? ((successCount + errorCount) / selectedFiles.length) * 100 : 0}%`,
+                            }}
+                          />
                         </div>
-                      )}
+                        <div className="mt-2 flex justify-between text-xs text-[#5A6485]">
+                          <span>
+                            {Math.round(selectedFiles.length > 0 ? ((successCount + errorCount) / selectedFiles.length) * 100 : 0)}% complete
+                          </span>
+                          <span>
+                            {successCount + errorCount} / {selectedFiles.length} processed
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Upload button — only show if there are pending files */}
+                    {pendingCount > 0 && (
                       <div className="flex items-center justify-between">
                         <p className="text-sm text-[#5A6485]">
-                          {uploading ? (
-                            <>
-                              Uploading batch ·{" "}
-                              <strong className="text-brand">{successCount} done</strong>
-                              {errorCount > 0 && <span className="text-red-600"> · {errorCount} failed</span>}
-                            </>
-                          ) : (
-                            <>
-                              {pendingCount} file{pendingCount === 1 ? "" : "s"} ready to upload to{" "}
-                              <strong className="text-brand">
-                                {CATEGORIES.find((c) => c.value === category)?.label}
-                              </strong>
-                            </>
-                          )}
+                          {pendingCount} file{pendingCount === 1 ? "" : "s"} ready to upload to{" "}
+                          <strong className="text-brand">
+                            {CATEGORIES.find((c) => c.value === category)?.label}
+                          </strong>
                         </p>
                         <PYCButton
                           onClick={uploadAll}
@@ -431,7 +518,7 @@ export default function MediaPage() {
                           {uploading ? (
                             <>
                               <Loader2 className="size-4 animate-spin" />
-                              Uploading... ({successCount + errorCount}/{selectedFiles.filter((f) => f.status !== "pending").length + pendingCount})
+                              Uploading...
                             </>
                           ) : (
                             <>
@@ -441,37 +528,25 @@ export default function MediaPage() {
                           )}
                         </PYCButton>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  {/* Success message */}
-                  {successCount > 0 && pendingCount === 0 && !uploading && (
-                    <div className="mt-4 rounded-2xl bg-green-50 border border-green-200 p-4 text-center">
-                      <CheckCircle2 className="size-8 text-green-600 mx-auto mb-2" />
-                      <p className="font-semibold text-green-800">
-                        {successCount} image{successCount === 1 ? "" : "s"} uploaded successfully!
-                      </p>
-                      <p className="text-sm text-green-700 mt-1">
-                        The gallery has been updated.{" "}
-                        <a href="/gallery" className="underline font-semibold">
-                          View Gallery
-                        </a>
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Error message */}
-                  {errorCount > 0 && (
-                    <div className="mt-4 rounded-2xl bg-red-50 border border-red-200 p-4 text-center">
-                      <XCircle className="size-8 text-red-600 mx-auto mb-2" />
-                      <p className="font-semibold text-red-800">
-                        {errorCount} upload{errorCount === 1 ? "" : "s"} failed
-                      </p>
-                      <p className="text-sm text-red-700 mt-1">
-                        Please try again or contact support.
-                      </p>
-                    </div>
-                  )}
+                    {/* Upload more button — after completion */}
+                    {uploadComplete && pendingCount === 0 && (
+                      <div className="text-center">
+                        <PYCButton
+                          onClick={() => {
+                            setSelectedFiles([]);
+                            setUploadComplete(false);
+                          }}
+                          variant="outline"
+                          size="lg"
+                        >
+                          <Upload className="size-4" />
+                          Upload More Images
+                        </PYCButton>
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
 
