@@ -34,7 +34,6 @@ const NAV_LINKS: {
   { label: "What We Do", href: "#programs" },
   { label: "Projects", href: "#projects" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Media", href: "/media" },
   { label: "Events", href: "#events" },
   { label: "Volunteer", href: "#volunteer" },
   { label: "Contact", href: "#contact" },
