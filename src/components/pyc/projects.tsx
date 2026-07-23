@@ -10,8 +10,7 @@ const PROJECTS = [
     location: "Ho Municipality, Volta Region",
     description:
       "Borehole rehabilitation and hygiene education reaching 8 rural communities with safe drinking water for the first time.",
-    image:
-      "https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/project-water.jpg",
     tag: "WASH",
     large: true,
   },
@@ -20,8 +19,7 @@ const PROJECTS = [
     location: "Ho, Ghana",
     description:
       "A 6-week coding and robotics intensive for 60 senior high school girls.",
-    image:
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=900&q=80",
+    image: "/images/project-stem.jpg",
     tag: "Education",
     large: false,
   },
@@ -30,8 +28,7 @@ const PROJECTS = [
     location: "Across 12 districts",
     description:
       "5,000+ indigenous trees planted with schools and faith groups to restore degraded land.",
-    image:
-      "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=900&q=80",
+    image: "/images/project-trees.jpg",
     tag: "Environment",
     large: false,
   },
@@ -40,8 +37,7 @@ const PROJECTS = [
     location: "Ho & surrounding towns",
     description:
       "Training 80 youth leaders as certified mental health first-aid responders in their schools and churches.",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",
+    image: "/images/project-health.jpg",
     tag: "Health",
     large: false,
   },

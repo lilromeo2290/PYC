@@ -32,11 +32,9 @@ import {
    The wrapper carries id="about" so the parent navbar link still works.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const HISTORY_IMG =
-  "https://images.unsplash.com/photo-1529390070664-5b20b5c2b139?auto=format&fit=crop&w=1100&q=80";
+const HISTORY_IMG = "/images/history-community.jpg";
 
-const MUSIC_BG =
-  "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1100&q=80";
+const MUSIC_BG = "/images/music-bg.jpg";
 
 const MUSIC_IMG = "/borborbor-album.jpg";
 

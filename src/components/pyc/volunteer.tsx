@@ -4,8 +4,7 @@ import * as React from "react";
 import { Heart, Handshake, CheckCircle2 } from "lucide-react";
 import { PYCButton } from "./button";
 
-const BG =
-  "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80";
+const BG = "/images/volunteer-bg.jpg";
 
 const BENEFITS = [
   "Hands-on leadership training",
