@@ -1,0 +1,32 @@
+[
+  {
+    "src": "/gallery/community/volunteers-helping-children.jpg",
+    "alt": "Volunteers Helping Children",
+    "category": "Community",
+    "span": true
+  },
+  {
+    "src": "/gallery/education/classroom-session.jpg",
+    "alt": "Classroom Session",
+    "category": "Education",
+    "span": true
+  },
+  {
+    "src": "/gallery/health/outreach-camp.jpg",
+    "alt": "Outreach Camp",
+    "category": "Health",
+    "span": true
+  },
+  {
+    "src": "/gallery/environment/tree-planting.jpg",
+    "alt": "Tree Planting",
+    "category": "Environment",
+    "span": true
+  },
+  {
+    "src": "/gallery/events/youth-summit.jpg",
+    "alt": "Youth Summit",
+    "category": "Events",
+    "span": true
+  }
+]
