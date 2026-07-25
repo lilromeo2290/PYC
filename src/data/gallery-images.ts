@@ -11,6 +11,30 @@ export interface GalleryImage {
 
 const localImages: GalleryImage[] = [
   {
+    "src": "/gallery/community/volunteers-helping-children.jpg",
+    "alt": "Volunteers Helping Children",
+    "category": "Community",
+    "span": true
+  },
+  {
+    "src": "/gallery/education/classroom-session.jpg",
+    "alt": "Classroom Session",
+    "category": "Education",
+    "span": true
+  },
+  {
+    "src": "/gallery/health/outreach-camp.jpg",
+    "alt": "Outreach Camp",
+    "category": "Health",
+    "span": true
+  },
+  {
+    "src": "/gallery/environment/tree-planting.jpg",
+    "alt": "Tree Planting",
+    "category": "Environment",
+    "span": true
+  },
+  {
     "src": "/gallery/events/5b8a0002.jpg",
     "alt": "5b8a0002",
     "category": "Events",
@@ -47,6 +71,12 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0010-1.jpg",
+    "alt": "5b8a0010 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0010.jpg",
     "alt": "5b8a0010",
     "category": "Events",
@@ -65,6 +95,12 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0014-1.jpg",
+    "alt": "5b8a0014 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0014.jpg",
     "alt": "5b8a0014",
     "category": "Events",
@@ -73,6 +109,12 @@ const localImages: GalleryImage[] = [
   {
     "src": "/gallery/events/5b8a0015.jpg",
     "alt": "5b8a0015",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0016-1.jpg",
+    "alt": "5b8a0016 1",
     "category": "Events",
     "span": false
   },
@@ -101,8 +143,20 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0020-1.jpg",
+    "alt": "5b8a0020 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0020.jpg",
     "alt": "5b8a0020",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0021-1.jpg",
+    "alt": "5b8a0021 1",
     "category": "Events",
     "span": false
   },
@@ -143,6 +197,12 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0028-1.jpg",
+    "alt": "5b8a0028 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0028.jpg",
     "alt": "5b8a0028",
     "category": "Events",
@@ -151,6 +211,12 @@ const localImages: GalleryImage[] = [
   {
     "src": "/gallery/events/5b8a0029.jpg",
     "alt": "5b8a0029",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0030-1.jpg",
+    "alt": "5b8a0030 1",
     "category": "Events",
     "span": false
   },
@@ -167,8 +233,80 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0032.jpg",
+    "alt": "5b8a0032",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0042.jpg",
+    "alt": "5b8a0042",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0056.jpg",
+    "alt": "5b8a0056",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0058.jpg",
+    "alt": "5b8a0058",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0061.jpg",
+    "alt": "5b8a0061",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0079.jpg",
+    "alt": "5b8a0079",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0081.jpg",
+    "alt": "5b8a0081",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0085.jpg",
+    "alt": "5b8a0085",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0088.jpg",
+    "alt": "5b8a0088",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0145.jpg",
+    "alt": "5b8a0145",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0156.jpg",
     "alt": "5b8a0156",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0160.jpg",
+    "alt": "5b8a0160",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0164.jpg",
+    "alt": "5b8a0164",
     "category": "Events",
     "span": false
   },
@@ -179,8 +317,68 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0166-1.jpg",
+    "alt": "5b8a0166 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0166.jpg",
     "alt": "5b8a0166",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0167.jpg",
+    "alt": "5b8a0167",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0170.jpg",
+    "alt": "5b8a0170",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0173.jpg",
+    "alt": "5b8a0173",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0178.jpg",
+    "alt": "5b8a0178",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0179.jpg",
+    "alt": "5b8a0179",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0182.jpg",
+    "alt": "5b8a0182",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0183.jpg",
+    "alt": "5b8a0183",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0188.jpg",
+    "alt": "5b8a0188",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0189.jpg",
+    "alt": "5b8a0189",
     "category": "Events",
     "span": false
   },
@@ -191,8 +389,152 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0192.jpg",
+    "alt": "5b8a0192",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0193.jpg",
+    "alt": "5b8a0193",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0196.jpg",
+    "alt": "5b8a0196",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0205.jpg",
     "alt": "5b8a0205",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0211.jpg",
+    "alt": "5b8a0211",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0212.jpg",
+    "alt": "5b8a0212",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0213.jpg",
+    "alt": "5b8a0213",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0218.jpg",
+    "alt": "5b8a0218",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0220.jpg",
+    "alt": "5b8a0220",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0221.jpg",
+    "alt": "5b8a0221",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0222.jpg",
+    "alt": "5b8a0222",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0223.jpg",
+    "alt": "5b8a0223",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0230.jpg",
+    "alt": "5b8a0230",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0232.jpg",
+    "alt": "5b8a0232",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0236.jpg",
+    "alt": "5b8a0236",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0237.jpg",
+    "alt": "5b8a0237",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0239.jpg",
+    "alt": "5b8a0239",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0242.jpg",
+    "alt": "5b8a0242",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0243.jpg",
+    "alt": "5b8a0243",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0245.jpg",
+    "alt": "5b8a0245",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0250.jpg",
+    "alt": "5b8a0250",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0252.jpg",
+    "alt": "5b8a0252",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0257.jpg",
+    "alt": "5b8a0257",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0258.jpg",
+    "alt": "5b8a0258",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0260-1.jpg",
+    "alt": "5b8a0260 1",
     "category": "Events",
     "span": false
   },
@@ -203,8 +545,68 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0263.jpg",
+    "alt": "5b8a0263",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0265-1.jpg",
+    "alt": "5b8a0265 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0265.jpg",
     "alt": "5b8a0265",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0266.jpg",
+    "alt": "5b8a0266",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0267.jpg",
+    "alt": "5b8a0267",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0269.jpg",
+    "alt": "5b8a0269",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0272.jpg",
+    "alt": "5b8a0272",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0273.jpg",
+    "alt": "5b8a0273",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0276.jpg",
+    "alt": "5b8a0276",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0277.jpg",
+    "alt": "5b8a0277",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0280-1.jpg",
+    "alt": "5b8a0280 1",
     "category": "Events",
     "span": false
   },
@@ -215,8 +617,32 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0282.jpg",
+    "alt": "5b8a0282",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0289.jpg",
+    "alt": "5b8a0289",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0299-1.jpg",
+    "alt": "5b8a0299 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0299.jpg",
     "alt": "5b8a0299",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0305.jpg",
+    "alt": "5b8a0305",
     "category": "Events",
     "span": false
   },
@@ -227,8 +653,80 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0314.jpg",
+    "alt": "5b8a0314",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0353.jpg",
+    "alt": "5b8a0353",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0354.jpg",
+    "alt": "5b8a0354",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0362.jpg",
+    "alt": "5b8a0362",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0370.jpg",
+    "alt": "5b8a0370",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0371.jpg",
+    "alt": "5b8a0371",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0378.jpg",
+    "alt": "5b8a0378",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0380.jpg",
+    "alt": "5b8a0380",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0382.jpg",
+    "alt": "5b8a0382",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0400.jpg",
     "alt": "5b8a0400",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0404.jpg",
+    "alt": "5b8a0404",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0405.jpg",
+    "alt": "5b8a0405",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0411-1.jpg",
+    "alt": "5b8a0411 1",
     "category": "Events",
     "span": false
   },
@@ -245,14 +743,44 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0455-1.jpg",
+    "alt": "5b8a0455 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0455.jpg",
     "alt": "5b8a0455",
     "category": "Events",
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a0457.jpg",
+    "alt": "5b8a0457",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a0458-1.jpg",
+    "alt": "5b8a0458 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a0458.jpg",
     "alt": "5b8a0458",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9851.jpg",
+    "alt": "5b8a9851",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9852.jpg",
+    "alt": "5b8a9852",
     "category": "Events",
     "span": false
   },
@@ -269,8 +797,74 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a9877.jpg",
+    "alt": "5b8a9877",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9878-1.jpg",
+    "alt": "5b8a9878 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a9878.jpg",
     "alt": "5b8a9878",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9881.jpg",
+    "alt": "5b8a9881",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9886.jpg",
+    "alt": "5b8a9886",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9888.jpg",
+    "alt": "5b8a9888",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9889.jpg",
+    "alt": "5b8a9889",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9897.jpg",
+    "alt": "5b8a9897",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9900.jpg",
+    "alt": "5b8a9900",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9903.jpg",
+    "alt": "5b8a9903",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9906.jpg",
+    "alt": "5b8a9906",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9907-1.jpg",
+    "alt": "5b8a9907 1",
     "category": "Events",
     "span": false
   },
@@ -287,14 +881,92 @@ const localImages: GalleryImage[] = [
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a9922.jpg",
+    "alt": "5b8a9922",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9932.jpg",
+    "alt": "5b8a9932",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9933.jpg",
+    "alt": "5b8a9933",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9934.jpg",
+    "alt": "5b8a9934",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9936.jpg",
+    "alt": "5b8a9936",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9945.jpg",
+    "alt": "5b8a9945",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9947.jpg",
+    "alt": "5b8a9947",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9949.jpg",
+    "alt": "5b8a9949",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9951-1.jpg",
+    "alt": "5b8a9951 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a9951.jpg",
     "alt": "5b8a9951",
     "category": "Events",
     "span": false
   },
   {
+    "src": "/gallery/events/5b8a9966-1.jpg",
+    "alt": "5b8a9966 1",
+    "category": "Events",
+    "span": false
+  },
+  {
     "src": "/gallery/events/5b8a9966.jpg",
     "alt": "5b8a9966",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9968.jpg",
+    "alt": "5b8a9968",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9979.jpg",
+    "alt": "5b8a9979",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/5b8a9981.jpg",
+    "alt": "5b8a9981",
     "category": "Events",
     "span": false
   },
@@ -307,6 +979,12 @@ const localImages: GalleryImage[] = [
   {
     "src": "/gallery/events/pyc-panel-discussion.jpg",
     "alt": "Pyc Panel Discussion",
+    "category": "Events",
+    "span": false
+  },
+  {
+    "src": "/gallery/events/youth-summit.jpg",
+    "alt": "Youth Summit",
     "category": "Events",
     "span": false
   }
