@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowRight, Images, Loader2 } from "lucide-react";
+import { ArrowRight, Images, Loader2, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "./section-header";
 import { PYCButton } from "./button";
@@ -104,6 +104,8 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
   const [visibleCount, setVisibleCount] = React.useState(pageSize);
   // Fetch the latest image count from the API (for dynamic uploads)
   const [dynamicTotal, setDynamicTotal] = React.useState<number | null>(null);
+  // Lightbox state
+  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
 
   React.useEffect(() => {
     // Check if we're on the full gallery page (not the home preview)
@@ -136,6 +138,37 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
   const displayed = isLimited ? filtered : filtered.slice(0, visibleCount);
   const hasMore = !isLimited && visibleCount < filtered.length;
   const remainingCount = filtered.length - visibleCount;
+
+  // Keyboard navigation for lightbox
+  React.useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setLightboxIndex(null);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        setLightboxIndex((prev) =>
+          prev !== null ? (prev + 1) % displayed.length : null
+        );
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        setLightboxIndex((prev) =>
+          prev !== null
+            ? (prev - 1 + displayed.length) % displayed.length
+            : null
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKey);
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex, displayed.length]);
 
   return (
     <section id="gallery" className="relative bg-white py-20 md:py-28">
@@ -196,8 +229,9 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
           {displayed.map((img, i) => (
             <figure
               key={`${img.src}-${i}`}
+              onClick={() => setLightboxIndex(i)}
               className={cn(
-                "reveal group relative overflow-hidden rounded-3xl shadow-premium break-inside-avoid",
+                "reveal group relative overflow-hidden rounded-3xl shadow-premium break-inside-avoid cursor-pointer",
                 img.span ? "aspect-[4/5]" : "aspect-square"
               )}
               style={{ transitionDelay: `${(i % 6) * 0.05}s` }}
@@ -259,6 +293,66 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
           </div>
         )}
       </div>
+
+      {/* Lightbox modal */}
+      {lightboxIndex !== null && displayed[lightboxIndex] && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+          onClick={() => setLightboxIndex(null)}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setLightboxIndex(null)}
+            aria-label="Close"
+            className="absolute top-4 right-4 z-10 inline-flex size-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+          >
+            <X className="size-6" />
+          </button>
+
+          {/* Previous button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) =>
+                prev !== null
+                  ? (prev - 1 + displayed.length) % displayed.length
+                  : null
+              );
+            }}
+            aria-label="Previous image"
+            className="absolute left-4 z-10 inline-flex size-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors md:size-14"
+          >
+            <ChevronLeft className="size-6 md:size-7" />
+          </button>
+
+          {/* Image */}
+          <img
+            src={displayed[lightboxIndex].src}
+            alt={displayed[lightboxIndex].alt}
+            className="max-h-[85vh] max-w-[90vw] object-contain rounded-2xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          {/* Next button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) =>
+                prev !== null ? (prev + 1) % displayed.length : null
+              );
+            }}
+            aria-label="Next image"
+            className="absolute right-4 z-10 inline-flex size-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors md:size-14"
+          >
+            <ChevronRight className="size-6 md:size-7" />
+          </button>
+
+          {/* Counter */}
+          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-4 py-1.5 text-sm text-white/80 backdrop-blur">
+            {lightboxIndex + 1} / {displayed.length}
+          </p>
+        </div>
+      )}
     </section>
   );
 }
