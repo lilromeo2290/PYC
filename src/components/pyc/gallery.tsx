@@ -210,16 +210,8 @@ export function Gallery({ limit, showViewMore = false, pageSize = 12 }: GalleryP
               />
               <div
                 aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-[#0B1130]/85 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-t from-[#0B1130]/40 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100"
               />
-              <figcaption className="absolute bottom-0 left-0 right-0 translate-y-4 p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="inline-flex items-center rounded-full bg-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#182368]">
-                  {img.category}
-                </span>
-                <p className="mt-2 text-sm font-medium text-white">
-                  {img.alt}
-                </p>
-              </figcaption>
             </figure>
           ))}
         </div>
