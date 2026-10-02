@@ -200,7 +200,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="font-semibold text-gold hover:text-[#E8C766] transition-colors"
               >
-                CLIPE CONSULT
+                RaClipe Consult
               </a>
             </p>
           </div>
